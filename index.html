@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciberbyte Tecnología</title>
+
+<style>
+
+    .nequi{
+background:#6A1B9A;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.modalQR{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+}
+
+.contenidoQR{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+.nequi{
+background:#6A1B9A;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+.banner{
+background:url("imagenes/banner.jpg");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+color:white;
+text-shadow:0 3px 10px rgba(0,0,0,0.8);
+}
+
+.banner h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.banner p{
+font-size:20px;
+}
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+}
+
+/* HEADER */
+
+header{
+background:black;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+/* MENU */
+
+nav{
+background:white;
+padding:15px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav a{
+margin:15px;
+text-decoration:none;
+font-weight:bold;
+color:black;
+}
+
+/* SECCIONES */
+
+section{
+padding:40px;
+text-align:center;
+}
+
+/* PRODUCTOS */
+
+.galeria{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+}
+
+.producto{
+background:white;
+padding:20px;
+width:250px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.producto:hover{
+transform:translateY(-5px);
+}
+
+.producto img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.precio{
+font-weight:bold;
+font-size:18px;
+margin-top:10px;
+}
+
+/* BOTONES */
+
+.boton{
+background:black;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+.boton:hover{
+background:#333;
+transform:scale(1.05);
+}
+
+/* CARRITO */
+
+.carrito-icono{
+position:fixed;
+top:20px;
+right:20px;
+background:black;
+color:white;
+padding:12px 18px;
+border-radius:30px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+z-index:1000;
+}
+
+.contador{
+background:red;
+color:white;
+border-radius:50%;
+padding:3px 8px;
+font-size:12px;
+margin-left:5px;
+}
+
+/* PANEL CARRITO */
+
+#panelCarrito{
+position:fixed;
+top:0;
+right:-400px;
+width:350px;
+height:100%;
+background:white;
+box-shadow:-5px 0 20px rgba(0,0,0,0.2);
+padding:20px;
+transition:0.4s;
+overflow:auto;
+z-index:999;
+}
+
+#panelCarrito h2{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.itemCarrito{
+display:flex;
+justify-content:space-between;
+margin:10px 0;
+padding:10px;
+background:#f5f5f5;
+border-radius:10px;
+}
+
+.total{
+font-size:20px;
+font-weight:bold;
+margin-top:20px;
+}
+
+/* BOTON WHATSAPP */
+
+.comprar{
+background:#25D366;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+/* CONTACTO */
+
+.contacto{
+background:black;
+color:white;
+}
+
+/* LOGIN */
+
+input{
+padding:10px;
+width:220px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:15px;
+}
+#btnArriba{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#007BFF;
+color:white;
+border:none;
+padding:12px 16px;
+font-size:20px;
+border-radius:50%;
+cursor:pointer;
+display:none;
+box-shadow:0 5px 10px rgba(0,0,0,0.3);
+}
+
+#btnArriba:hover{
+background:#333;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<header>
+
+<div class="banner">
+
+<h1>.</h1>
+
+<p>.</p>
+
+</div>
+
+</header>
+</header>
+
+<nav>
+<a href="#">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#contacto">Contacto</a>
+<a href="#login">Login</a>
+</nav>
+
+<div class="carrito-icono" onclick="toggleCarrito()">
+🛒 Carrito <span class="contador" id="contador">0</span>
+</div>
+
+<section>
+
+<h2>Bienvenido</h2>
+<p>En Ciberbyte Tecnología encontrarás accesorios tecnológicos y servicios de internet.</p>
+
+</section>
+
+<section id="productos">
+
+<h2>Productos</h2>
+
+<div class="galeria">
+    <div class="producto">
+<img src="imagenes/Audifono Caja colores.jpeg">
+<h3>Audifonos Manos Libres</h3>
+<p class="precio">$12.000</p>
+<button class="boton" onclick="agregar('Mouse Cable SD300',120000)">Agregar</button>
+</div>
+
+     <div class="producto">
+<img src="imagenes/DRON RC.jpeg">
+<h3>Mini Dron RC Leading</h3>
+<p class="precio">$120.000</p>
+<button class="boton" onclick="agregar('Mouse Cable SD300',120000)">Agregar</button>
+</div>
+    <div class="producto">
+<img src="imagenes/Mouse SD300.jpeg">
+<h3>Mouse Cable SD300</h3>
+<p class="precio">$12.000</p>
+<button class="boton" onclick="agregar('Mouse Cable SD300',12000)">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="imagenes/AIR PRO.jpeg">   
+<h3>Audífonos Air Pro</h3>
+<p class="precio">$60.000</p>
+<button class="boton" onclick="agregar('Audífonos Air Pro',60000)">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="imagenes/AUDIFONOS NIKY.jpeg">
+<h3>Audífonos NIKY</h3>
+<p class="precio">$55.000</p>
+<button class="boton" onclick="agregar('Audífonos NIKY',55000)">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="imagenes/ANDROID TV.jpeg">
+<h3>Android Tv</h3>
+<p class="precio">$80.000</p>
+<button class="boton" onclick="agregar('Android Tv',80000)">Agregar</button>
+</div>
+
+<div class="producto">
+<img src="imagenes/Intercomunicador.jpeg">
+<h3>Intercomunicador</h3>
+<p class="precio">$60.000</p>
+<button class="boton" onclick="agregar('Intercomunicador',60000)">Agregar</button>
+</div>
+<div class="producto">
+<img src="imagenes/Carga y juega.jpeg">
+<h3>Carga y juega Xbox</h3>
+<p class="precio">$20.000</p>
+<button class="boton" onclick="agregar('Carga y juega Xbox',20000)">Agregar</button>
+</div>
+</div>
+
+
+</section>
+
+<div id="panelCarrito">
+
+<h2>
+Tu carrito 
+<button onclick="cerrarCarrito()">❌</button>
+</h2>
+
+<div id="listaCarrito"></div>
+
+<p class="total">Total: $<span id="total">0</span></p>
+
+<button class="comprar" onclick="pagar()">
+Comprar por WhatsApp
+</button>
+<button class="nequi" onclick="mostrarQR()">
+💜 Pagar con Nequi
+</button>
+</div>
+
+<section id="contacto" class="contacto">
+
+<h2>Contacto</h2>
+
+<p>
+📍 Bogotá - Colombia<br>
+Calle 21 Sur #11A-27 Este
+</p>
+
+<p>
+📧 ciberbyte.ms@gmail.com
+</p>
+
+<p>
+📱 +57 300 367 3598
+</p>
+
+<iframe
+src="https://www.google.com/maps?q=calle%2021%20sur%2011a-27%20este%20bogota&output=embed"
+width="100%"
+height="300"
+style="border:0;border-radius:10px;">
+</iframe>
+
+</section>
+
+<section id="login">
+
+<h2>Iniciar sesión</h2>
+
+<input type="text" id="usuario" placeholder="Usuario"><br><br>
+
+<input type="password" id="clave" placeholder="Contraseña"><br><br>
+
+<button class="boton" onclick="registrar()">Registrarse</button>
+
+<button class="boton" onclick="iniciarSesion()">Entrar</button>
+
+<p id="mensajeLogin"></p>
+
+</section>
+<div id="qrNequi" class="modalQR">
+
+<div class="contenidoQR">
+
+<h3>Escanea para pagar con Nequi recuerda Enviar capture al 3003673598</h3>
+
+<img src="imagenes/QR NEQU.jpeg" width="250">
+
+<br><br>
+
+<button onclick="cerrarQR()">Cerrar</button>
+
+</div>
+
+</div>
+<footer>
+<p>© 2026 Ciberbyte Tecnología</p>
+</footer>
+<button onclick="volverArriba()" id="btnArriba">⬆</button>
+<script>
+    window.onscroll=function(){
+
+let boton=document.getElementById("btnArriba")
+
+if(document.documentElement.scrollTop>300){
+
+boton.style.display="block"
+
+}else{
+
+boton.style.display="none"
+
+}
+
+}
+
+function volverArriba(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+})
+
+}
+
+let carrito=[]
+let total=0
+
+function agregar(nombre,precio){
+
+carrito.push({nombre,precio})
+total+=precio
+
+actualizar()
+
+let carritoIcono=document.querySelector(".carrito-icono")
+
+carritoIcono.style.transform="scale(1.3)"
+
+setTimeout(()=>{
+carritoIcono.style.transform="scale(1)"
+},300)
+
+}
+
+function actualizar(){
+
+let lista=document.getElementById("listaCarrito")
+lista.innerHTML=""
+
+carrito.forEach((p,i)=>{
+
+lista.innerHTML+=`
+<div class="itemCarrito">
+${p.nombre} - $${p.precio}
+<button onclick="eliminar(${i})">❌</button>
+</div>
+`
+
+})
+
+document.getElementById("total").innerText=total
+document.getElementById("contador").innerText=carrito.length
+
+}
+
+function eliminar(i){
+
+total-=carrito[i].precio
+carrito.splice(i,1)
+
+actualizar()
+
+}
+
+function toggleCarrito(){
+
+let panel=document.getElementById("panelCarrito")
+
+if(panel.style.right=="0px"){
+panel.style.right="-400px"
+}else{
+panel.style.right="0px"
+}
+
+}
+
+function cerrarCarrito(){
+
+document.getElementById("panelCarrito").style.right="-400px"
+
+}
+
+function pagar(){
+
+let mensaje="Hola quiero comprar:%0A"
+
+carrito.forEach(p=>{
+mensaje+=p.nombre+" - $"+p.precio+"%0A"
+})
+
+mensaje+="Total: $"+total
+
+window.open("https://wa.me/573003673598?text="+mensaje)
+
+}
+
+/* LOGIN */
+
+function registrar(){
+
+let usuario=document.getElementById("usuario").value
+let clave=document.getElementById("clave").value
+
+localStorage.setItem("usuario",usuario)
+localStorage.setItem("clave",clave)
+
+document.getElementById("mensajeLogin").innerText="Usuario registrado"
+
+}
+
+function iniciarSesion(){
+
+let usuario=document.getElementById("usuario").value
+let clave=document.getElementById("clave").value
+
+let usuarioGuardado=localStorage.getItem("usuario")
+let claveGuardada=localStorage.getItem("clave")
+
+if(usuario===usuarioGuardado && clave===claveGuardada){
+
+document.getElementById("mensajeLogin").innerText="Bienvenido "+usuario
+
+}else{
+
+document.getElementById("mensajeLogin").innerText="Usuario o contraseña incorrectos"
+
+}
+
+}
+function mostrarQR(){
+document.getElementById("qrNequi").style.display="flex"
+}
+
+function cerrarQR(){
+document.getElementById("qrNequi").style.display="none"
+}
+</script>
+
+</body>
+</html>
