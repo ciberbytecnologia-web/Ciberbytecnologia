@@ -6,8 +6,7 @@
 <title>Ciberbyte Tecnología</title>
 
 <style>
-
-    .nequi{
+.nequi{
 background:#6A1B9A;
 color:white;
 border:none;
@@ -29,6 +28,7 @@ height:100%;
 background:rgba(0,0,0,0.7);
 justify-content:center;
 align-items:center;
+z-index:2000;
 }
 
 .contenidoQR{
@@ -37,17 +37,7 @@ padding:30px;
 border-radius:15px;
 text-align:center;
 }
-.nequi{
-background:#6A1B9A;
-color:white;
-border:none;
-padding:12px;
-width:100%;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-margin-top:10px;
-}
+
 .banner{
 background:url("imagenes/banner.jpg");
 background-size:cover;
@@ -65,6 +55,7 @@ margin-bottom:10px;
 .banner p{
 font-size:20px;
 }
+
 body{
 margin:0;
 font-family:Arial;
@@ -72,7 +63,6 @@ background:#f5f5f5;
 }
 
 /* HEADER */
-
 header{
 background:black;
 color:white;
@@ -81,7 +71,6 @@ padding:40px;
 }
 
 /* MENU */
-
 nav{
 background:white;
 padding:15px;
@@ -97,14 +86,12 @@ color:black;
 }
 
 /* SECCIONES */
-
 section{
 padding:40px;
 text-align:center;
 }
 
 /* PRODUCTOS */
-
 .galeria{
 display:flex;
 flex-wrap:wrap;
@@ -139,7 +126,6 @@ margin-top:10px;
 }
 
 /* BOTONES */
-
 .boton{
 background:black;
 color:white;
@@ -157,7 +143,6 @@ transform:scale(1.05);
 }
 
 /* CARRITO */
-
 .carrito-icono{
 position:fixed;
 top:20px;
@@ -181,7 +166,6 @@ margin-left:5px;
 }
 
 /* PANEL CARRITO */
-
 #panelCarrito{
 position:fixed;
 top:0;
@@ -218,7 +202,6 @@ margin-top:20px;
 }
 
 /* BOTON WHATSAPP */
-
 .comprar{
 background:#25D366;
 color:white;
@@ -232,14 +215,12 @@ margin-top:15px;
 }
 
 /* CONTACTO */
-
 .contacto{
 background:black;
 color:white;
 }
 
 /* LOGIN */
-
 input{
 padding:10px;
 width:220px;
@@ -248,13 +229,13 @@ border:1px solid #ccc;
 }
 
 /* FOOTER */
-
 footer{
 background:#111;
 color:white;
 text-align:center;
 padding:15px;
 }
+
 #btnArriba{
 position:fixed;
 bottom:30px;
@@ -273,64 +254,48 @@ box-shadow:0 5px 10px rgba(0,0,0,0.3);
 #btnArriba:hover{
 background:#333;
 }
-  @media screen and (max-width:768px){
 
+@media screen and (max-width:768px){
 .galeria{
 display:flex;
 flex-direction:column;
 align-items:center;
 }
-
 .producto{
 width:90%;
 }
-
 .banner{
 padding:50px 10px;
 }
-
 .banner h1{
 font-size:28px;
 }
-
 .banner p{
 font-size:16px;
 }
-
 nav{
 display:flex;
 flex-direction:column;
 gap:10px;
 }
-
 nav a{
 margin:5px;
 }
-
 #panelCarrito{
 width:100%;
 right:-100%;
 }
-
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-<header>
-
 <div class="banner">
-
 <h1>.</h1>
-
 <p>.</p>
-
 </div>
-
-</header>
 </header>
 
 <nav>
@@ -345,303 +310,288 @@ right:-100%;
 </div>
 
 <section>
-
 <h2>Bienvenido</h2>
 <p>En Ciberbyte Tecnología encontrarás accesorios tecnológicos y servicios de internet.</p>
-
 </section>
 
 <section id="productos">
-
 <h2>Productos</h2>
-
 <div class="galeria">
     <div class="producto">
-<img src="imagenes/Audifono Caja colores.jpeg">
-<h3>Audifonos Manos Libres</h3>
-<p class="precio">$12.000</p>
-<button class="boton" onclick="agregar('Mouse Cable SD300',120000)">Agregar</button>
-</div>
+        <img src="imagenes/Audifono Caja colores.jpeg">
+        <h3>Audifonos Manos Libres</h3>
+        <p class="precio">$12.000</p>
+        <button class="boton" onclick="agregar('Audifonos Manos libres',12000)">Agregar</button>
+    </div>
 
      <div class="producto">
-<img src="imagenes/DRON RC.jpeg">
-<h3>Mini Dron RC Leading</h3>
-<p class="precio">$120.000</p>
-<button class="boton" onclick="agregar('Mouse Cable SD300',120000)">Agregar</button>
-</div>
+        <img src="imagenes/DRON RC.jpeg">
+        <h3>Mini Dron RC Leading</h3>
+        <p class="precio">$120.000</p>
+        <button class="boton" onclick="agregar('Mini Dron RC Leading',120000)">Agregar</button>
+    </div>
+
     <div class="producto">
-<img src="imagenes/Mouse SD300.jpeg">
-<h3>Mouse Cable SD300</h3>
-<p class="precio">$12.000</p>
-<button class="boton" onclick="agregar('Mouse Cable SD300',12000)">Agregar</button>
-</div>
+        <img src="imagenes/Mouse SD300.jpeg">
+        <h3>Mouse Cable SD300</h3>
+        <p class="precio">$12.000</p>
+        <button class="boton" onclick="agregar('Mouse Cable SD300',12000)">Agregar</button>
+    </div>
 
-<div class="producto">
-<img src="imagenes/AIR PRO.jpeg">   
-<h3>Audífonos Air Pro</h3>
-<p class="precio">$60.000</p>
-<button class="boton" onclick="agregar('Audífonos Air Pro',60000)">Agregar</button>
-</div>
+    <div class="producto">
+        <img src="imagenes/AIR PRO.jpeg">   
+        <h3>Audífonos Air Pro</h3>
+        <p class="precio">$60.000</p>
+        <button class="boton" onclick="agregar('Audífonos Air Pro',60000)">Agregar</button>
+    </div>
 
-<div class="producto">
-<img src="imagenes/AUDIFONOS NIKY.jpeg">
-<h3>Audífonos NIKY</h3>
-<p class="precio">$55.000</p>
-<button class="boton" onclick="agregar('Audífonos NIKY',55000)">Agregar</button>
-</div>
+    <div class="producto">
+        <img src="imagenes/AUDIFONOS NIKY.jpeg">
+        <h3>Audífonos NIKY</h3>
+        <p class="precio">$55.000</p>
+        <button class="boton" onclick="agregar('Audífonos NIKY',55000)">Agregar</button>
+    </div>
 
-<div class="producto">
-<img src="imagenes/ANDROID TV.jpeg">
-<h3>Android Tv</h3>
-<p class="precio">$80.000</p>
-<button class="boton" onclick="agregar('Android Tv',80000)">Agregar</button>
-</div>
+    <div class="producto">
+        <img src="imagenes/ANDROID TV.jpeg">
+        <h3>Android Tv</h3>
+        <p class="precio">$80.000</p>
+        <button class="boton" onclick="agregar('Android Tv',80000)">Agregar</button>
+    </div>
 
-<div class="producto">
-<img src="imagenes/Intercomunicador.jpeg">
-<h3>Intercomunicador</h3>
-<p class="precio">$60.000</p>
-<button class="boton" onclick="agregar('Intercomunicador',60000)">Agregar</button>
-</div>
-<div class="producto">
-<img src="imagenes/Carga y juega.jpeg">
-<h3>Carga y juega Xbox</h3>
-<p class="precio">$20.000</p>
-<button class="boton" onclick="agregar('Carga y juega Xbox',20000)">Agregar</button>
-</div>
-</div>
+    <div class="producto">
+        <img src="imagenes/Intercomunicador.jpeg">
+        <h3>Intercomunicador</h3>
+        <p class="precio">$60.000</p>
+        <button class="boton" onclick="agregar('Intercomunicador',60000)">Agregar</button>
+    </div>
 
-
+    <div class="producto">
+        <img src="imagenes/Carga y juega.jpeg">
+        <h3>Carga y juega Xbox</h3>
+        <p class="precio">$20.000</p>
+        <button class="boton" onclick="agregar('Carga y juega Xbox',20000)">Agregar</button>
+    </div>
+    <div class="producto">
+        <img src="imagenes/MOUSE I OCZU.jpeg">
+        <h3>Mouse Inalambrico Oczu</h3>
+        <p class="precio">$26.000</p>
+        <button class="boton" onclick="agregar('Carga y juega Xbox',26000)">Agregar</button>
+    </div>
+      <div class="producto">
+        <img src="imagenes/MIni teclado TV (1).jpg">
+        <h3>Mini Teclado tv inalambrico</h3>
+        <p class="precio">$30.000</p>
+        <button class="boton" onclick="agregar('Carga y juega Xbox',30000)">Agregar</button>
+    </div>
+      <div class="producto">
+        <img src="imagenes/Combo teclado mouse.jpg">
+        <h3>Mouse Inalambrico Oczu</h3>
+        <p class="precio">$50.000</p>
+        <button class="boton" onclick="agregar('Carga y juega Xbox',50000)">Agregar</button>
+    </div>
+    <div class="producto">
+        <img src="imagenes/PLANCHA.jpeg">
+        <h3>Plancha Remigton </h3>
+        <p class="precio">$60.000</p>
+        <button class="boton" onclick="agregar('Carga y juega Xbox',60000)">Agregar</button>
+    </div>
+</div>
 </section>
 
 <div id="panelCarrito">
+    <h2>
+        Tu carrito 
+        <button style="border:none; background:none; cursor:pointer; font-size:18px;" onclick="cerrarCarrito()">❌</button>
+    </h2>
 
-<h2>
-Tu carrito 
-<button onclick="cerrarCarrito()">❌</button>
-</h2>
+    <div id="listaCarrito"></div>
 
-<div id="listaCarrito"></div>
+    <p class="total">Total: $<span id="total">0</span></p>
 
-<p class="total">Total: $<span id="total">0</span></p>
-
-<button class="comprar" onclick="pagar()">
-Comprar por WhatsApp
-</button>
-<button class="nequi" onclick="mostrarQR()">
-💜 Pagar con Nequi
-</button>
+    <button class="comprar" onclick="pagar()">
+        Comprar por WhatsApp
+    </button>
+    
+    <button class="nequi" onclick="mostrarQR()">
+        💜 Pagar con Nequi
+    </button>
 </div>
 
 <section id="contacto" class="contacto">
-
-<h2>Contacto</h2>
-
-<p>
-📍 Bogotá - Colombia<br>
-Calle 21 Sur #11A-27 Este
-</p>
-
-<p>
-📧 ciberbyte.ms@gmail.com
-</p>
-
-<p>
-📱 +57 300 367 3598
-</p>
-
-<iframe
-src="https://www.google.com/maps?q=calle%2021%20sur%2011a-27%20este%20bogota&output=embed"
-width="100%"
-height="300"
-style="border:0;border-radius:10px;">
-</iframe>
-
+    <h2>Contacto</h2>
+    <p>📍 Bogotá - Colombia<br>Calle 21 Sur #11A-27 Este</p>
+    <p>📧 ciberbyte.ms@gmail.com</p>
+    <p>📱 +57 300 367 3598</p>
+    <iframe src="https://www.google.com/maps?q=calle%2021%20sur%2011a-27%20este%20bogota&output=embed" width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
 </section>
 
 <section id="login">
-
-<h2>Iniciar sesión</h2>
-
-<input type="text" id="usuario" placeholder="Usuario"><br><br>
-
-<input type="password" id="clave" placeholder="Contraseña"><br><br>
-
-<button class="boton" onclick="registrar()">Registrarse</button>
-
-<button class="boton" onclick="iniciarSesion()">Entrar</button>
-
-<p id="mensajeLogin"></p>
-
+    <h2>Iniciar sesión</h2>
+    <input type="text" id="usuario" placeholder="Usuario"><br><br>
+    <input type="password" id="clave" placeholder="Contraseña"><br><br>
+    <button class="boton" onclick="registrar()">Registrarse</button>
+    <button class="boton" onclick="iniciarSesion()">Entrar</button>
+    <p id="mensajeLogin"></p>
 </section>
+
 <div id="qrNequi" class="modalQR">
-
-<div class="contenidoQR">
-
-<h3>Escanea para pagar con Nequi recuerda Enviar capture al 3003673598</h3>
-
-<img src="imagenes/QR NEQU.jpeg" width="250">
-
-<br><br>
-
-<button onclick="cerrarQR()">Cerrar</button>
-
+    <div class="contenidoQR">
+        <h3>Escanea para pagar con Nequi</h3>
+        <h2 style="color: #6A1B9A;">Total: $<span id="montoNequiModal">0</span></h2>
+        <p>Recuerda enviar el comprobante al 3003673598</p>
+        
+        <img src="imagenes/QR NEQU.jpeg" width="250">
+        <br>
+        
+        <button class="nequi" onclick="confirmarPagoNequi()">¡Ya pagué!</button>
+        <button class="boton" style="margin-top:10px; width: 100%;" onclick="cerrarQR()">Cerrar</button>
+    </div>
 </div>
 
-</div>
 <footer>
-<p>© 2026 Ciberbyte Tecnología</p>
+    <p>© 2026 Ciberbyte Tecnología</p>
 </footer>
+
 <button onclick="volverArriba()" id="btnArriba">⬆</button>
+
 <script>
-    window.onscroll=function(){
-
-let boton=document.getElementById("btnArriba")
-
-if(document.documentElement.scrollTop>300){
-
-boton.style.display="block"
-
-}else{
-
-boton.style.display="none"
-
-}
-
+window.onscroll=function(){
+    let boton=document.getElementById("btnArriba")
+    if(document.documentElement.scrollTop>300){
+        boton.style.display="block"
+    }else{
+        boton.style.display="none"
+    }
 }
 
 function volverArriba(){
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-})
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    })
 }
 
 let carrito=[]
 let total=0
 
 function agregar(nombre,precio){
+    carrito.push({nombre,precio})
+    total+=precio
+    actualizar()
 
-carrito.push({nombre,precio})
-total+=precio
-
-actualizar()
-
-let carritoIcono=document.querySelector(".carrito-icono")
-
-carritoIcono.style.transform="scale(1.3)"
-
-setTimeout(()=>{
-carritoIcono.style.transform="scale(1)"
-},300)
-
+    let carritoIcono=document.querySelector(".carrito-icono")
+    carritoIcono.style.transform="scale(1.3)"
+    setTimeout(()=>{
+        carritoIcono.style.transform="scale(1)"
+    },300)
 }
 
 function actualizar(){
+    let lista=document.getElementById("listaCarrito")
+    lista.innerHTML=""
 
-let lista=document.getElementById("listaCarrito")
-lista.innerHTML=""
+    carrito.forEach((p,i)=>{
+        lista.innerHTML+=`
+        <div class="itemCarrito">
+        ${p.nombre} - $${p.precio}
+        <button style="border:none; background:none; cursor:pointer;" onclick="eliminar(${i})">❌</button>
+        </div>
+        `
+    })
 
-carrito.forEach((p,i)=>{
-
-lista.innerHTML+=`
-<div class="itemCarrito">
-${p.nombre} - $${p.precio}
-<button onclick="eliminar(${i})">❌</button>
-</div>
-`
-
-})
-
-document.getElementById("total").innerText=total
-document.getElementById("contador").innerText=carrito.length
-
+    document.getElementById("total").innerText=total
+    document.getElementById("contador").innerText=carrito.length
 }
 
 function eliminar(i){
-
-total-=carrito[i].precio
-carrito.splice(i,1)
-
-actualizar()
-
+    total-=carrito[i].precio
+    carrito.splice(i,1)
+    actualizar()
 }
 
 function toggleCarrito(){
-
-let panel=document.getElementById("panelCarrito")
-
-if(panel.style.right=="0px"){
-panel.style.right="-400px"
-}else{
-panel.style.right="0px"
-}
-
+    let panel=document.getElementById("panelCarrito")
+    if(panel.style.right=="0px"){
+        panel.style.right="-400px"
+    }else{
+        panel.style.right="0px"
+    }
 }
 
 function cerrarCarrito(){
-
-document.getElementById("panelCarrito").style.right="-400px"
-
+    document.getElementById("panelCarrito").style.right="-400px"
 }
 
 function pagar(){
-
-let mensaje="Hola quiero comprar:%0A"
-
-carrito.forEach(p=>{
-mensaje+=p.nombre+" - $"+p.precio+"%0A"
-})
-
-mensaje+="Total: $"+total
-
-window.open("https://wa.me/573003673598?text="+mensaje)
-
+    if(carrito.length === 0){
+        alert("Agrega productos al carrito primero.")
+        return
+    }
+    let mensaje="Hola quiero comprar:%0A"
+    carrito.forEach(p=>{
+        mensaje+=p.nombre+" - $"+p.precio+"%0A"
+    })
+    mensaje+="Total: $"+total
+    window.open("https://wa.me/573003673598?text="+mensaje)
 }
 
-/* LOGIN */
-
-function registrar(){
-
-let usuario=document.getElementById("usuario").value
-let clave=document.getElementById("clave").value
-
-localStorage.setItem("usuario",usuario)
-localStorage.setItem("clave",clave)
-
-document.getElementById("mensajeLogin").innerText="Usuario registrado"
-
-}
-
-function iniciarSesion(){
-
-let usuario=document.getElementById("usuario").value
-let clave=document.getElementById("clave").value
-
-let usuarioGuardado=localStorage.getItem("usuario")
-let claveGuardada=localStorage.getItem("clave")
-
-if(usuario===usuarioGuardado && clave===claveGuardada){
-
-document.getElementById("mensajeLogin").innerText="Bienvenido "+usuario
-
-}else{
-
-document.getElementById("mensajeLogin").innerText="Usuario o contraseña incorrectos"
-
-}
-
-}
+/* ----- LOGICA DEL CÓDIGO QR Y NEQUI ----- */
 function mostrarQR(){
-document.getElementById("qrNequi").style.display="flex"
+    if(carrito.length === 0){
+        alert("El carrito está vacío. Agrega productos para pagar.")
+        return
+    }
+    document.getElementById("montoNequiModal").innerText = total
+    document.getElementById("qrNequi").style.display="flex"
 }
 
 function cerrarQR(){
-document.getElementById("qrNequi").style.display="none"
+    document.getElementById("qrNequi").style.display="none"
+}
+
+function confirmarPagoNequi() {
+    // 1. Armar el mensaje para WhatsApp indicando que fue por Nequi
+    let mensaje="Hola, acabo de realizar un pago por Nequi. Mi pedido es:%0A"
+    carrito.forEach(p=>{
+        mensaje+=p.nombre+" - $"+p.precio+"%0A"
+    })
+    mensaje+="Total pagado: $"+total+"%0A%0A"
+    mensaje+="Aquí te envío el comprobante de pago:"
+
+    // 2. Abrir WhatsApp
+    window.open("https://wa.me/573003673598?text="+mensaje)
+
+    // 3. Vaciar carrito y cerrar las ventanas
+    carrito = []; 
+    total = 0;    
+    actualizar(); 
+    cerrarQR();   
+    cerrarCarrito(); 
+}
+
+/* LOGIN */
+function registrar(){
+    let usuario=document.getElementById("usuario").value
+    let clave=document.getElementById("clave").value
+    localStorage.setItem("usuario",usuario)
+    localStorage.setItem("clave",clave)
+    document.getElementById("mensajeLogin").innerText="Usuario registrado"
+}
+
+function iniciarSesion(){
+    let usuario=document.getElementById("usuario").value
+    let clave=document.getElementById("clave").value
+    let usuarioGuardado=localStorage.getItem("usuario")
+    let claveGuardada=localStorage.getItem("clave")
+
+    if(usuario===usuarioGuardado && clave===claveGuardada){
+        document.getElementById("mensajeLogin").innerText="Bienvenido "+usuario
+    }else{
+        document.getElementById("mensajeLogin").innerText="Usuario o contraseña incorrectos"
+    }
 }
 </script>
 
 </body>
-</html>
+</html> 
