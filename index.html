@@ -6,6 +6,34 @@
 <title>Ciberbyte Tecnología</title>
 
 <style>
+    .producto {
+    position: relative;
+}
+
+.producto.producto-agotado img {
+    opacity: 0.55;
+    filter: grayscale(35%);
+}
+
+.producto.producto-agotado .boton {
+    background: #777 !important;
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+.etiqueta-agotado {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    background: #d00000;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
 .nequi{
 background:#6A1B9A;
 color:white;
@@ -317,105 +345,118 @@ right:-100%;
 <section id="productos">
 <h2>Productos</h2>
 <div class="galeria">
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/Audifono Caja colores.jpeg">
         <h3>Audifonos Manos Libres</h3>
         <p class="precio">$12.000</p>
         <button class="boton" onclick="agregar('Audifonos Manos libres',12000)">Agregar</button>
     </div>
 
-     <div class="producto">
+     <div class="producto" data-disponible="on">
         <img src="imagenes/DRON RC.jpeg">
         <h3>Mini Dron RC Leading</h3>
         <p class="precio">$120.000</p>
         <button class="boton" onclick="agregar('Mini Dron RC Leading',120000)">Agregar</button>
     </div>
 
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/Mouse SD300.jpeg">
         <h3>Mouse Cable SD300</h3>
         <p class="precio">$12.000</p>
         <button class="boton" onclick="agregar('Mouse Cable SD300',12000)">Agregar</button>
     </div>
 
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/AIR PRO.jpeg">   
         <h3>Audífonos Air Pro</h3>
         <p class="precio">$60.000</p>
         <button class="boton" onclick="agregar('Audífonos Air Pro',60000)">Agregar</button>
     </div>
 
-    <div class="producto">
+    <div class="producto" data-disponible="off">
         <img src="imagenes/AUDIFONOS NIKY.jpeg">
         <h3>Audífonos NIKY</h3>
         <p class="precio">$55.000</p>
         <button class="boton" onclick="agregar('Audífonos NIKY',55000)">Agregar</button>
     </div>
 
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/ANDROID TV.jpeg">
         <h3>Android Tv</h3>
         <p class="precio">$80.000</p>
         <button class="boton" onclick="agregar('Android Tv',80000)">Agregar</button>
     </div>
 
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/Intercomunicador.jpeg">
         <h3>Intercomunicador</h3>
         <p class="precio">$60.000</p>
         <button class="boton" onclick="agregar('Intercomunicador',60000)">Agregar</button>
     </div>
 
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/Carga y juega.jpeg">
         <h3>Carga y juega Xbox</h3>
         <p class="precio">$20.000</p>
         <button class="boton" onclick="agregar('Carga y juega Xbox',20000)">Agregar</button>
     </div>
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/MOUSE I OCZU.jpeg">
         <h3>Mouse Inalambrico Oczu</h3>
         <p class="precio">$26.000</p>
         <button class="boton" onclick="agregar('Mouse Oczu',26000)">Agregar</button>
     </div>
-      <div class="producto">
+      <div class="producto" data-disponible="on">
         <img src="imagenes/MIni teclado TV (1).jpg">
         <h3>Mini Teclado tv inalambrico</h3>
         <p class="precio">$30.000</p>
         <button class="boton" onclick="agregar('Mini Teclado tv',30000)">Agregar</button>
     </div>
-      <div class="producto">
+      <div class="producto" data-disponible="on">
         <img src="imagenes/Combo teclado mouse.jpg">
         <h3>Mouse Inalambrico Oczu</h3>
         <p class="precio">$50.000</p>
         <button class="boton" onclick="agregar('Combo teclado Y Mouse',50000)">Agregar</button>
     </div>
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/PLANCHA.jpeg">
         <h3>Plancha Remigton </h3>
         <p class="precio">$60.000</p>
         <button class="boton" onclick="agregar('Plancha Remigton',60000)">Agregar</button>
     </div>
-    <div class="producto">
+    <div class="producto" data-disponible="on">
         <img src="imagenes/Ventilador helllo kity.jpeg">
         <h3>Ventilador Hello Kity </h3>
         <p class="precio">$25.000</p>
         <button class="boton" onclick="agregar('Ventilador Hello kity',25000)">Agregar</button>
     </div>
-      <div class="producto">
+      <div class="producto" data-disponible="on">
         <img src="imagenes/camara 360.jpeg">
         <h3>Camara 360 Pro </h3>
         <p class="precio">$80.000</p>
         <button class="boton" onclick="agregar('Camara 360 pro',80000)">Agregar</button>
-    </div><div class="producto">
+    </div><div class="producto" data-disponible="on">
         <img src="imagenes/camara bombilo.jpeg">
         <h3>Camara Bombillo </h3>
         <p class="precio">$70.000</p>
-        <button class="boton" onclick="agregar('Camara 360 pro',70000)">Agregar</button>
+        <button class="boton" onclick="agregar('Camara Bombillo',70000)">Agregar</button>
+    
+    </div><div class="producto" data-disponible="on">
+        <img src="imagenes/PATINETA.jpeg">
+        <h3>Patineta Ganzago 350W </h3>
+        <p class="precio">$1.300.000</p>
+        <button class="boton" onclick="agregar('Patineta 350W',1300000)">Agregar</button>
+
+            </div><div class="producto" data-disponible="on">
+        <img src="imagenes/DATAFONO SONOQR .jpg">
+        <h3>Datafono bold sonoqr </h3>
+        <p class="precio">$79.900</p>
+        <button class="boton" onclick="agregar('Datafono bold sonoqr',79900)">Agregar</button>
+        
     </div>
     
 
-    </div>
+    
       
 </div>
 </section>
@@ -477,6 +518,9 @@ right:-100%;
 <button onclick="volverArriba()" id="btnArriba">⬆</button>
 
 <script>
+
+
+
 window.onscroll=function(){
     let boton=document.getElementById("btnArriba")
     if(document.documentElement.scrollTop>300){
@@ -496,7 +540,64 @@ function volverArriba(){
 let carrito=[]
 let total=0
 
+function aplicarDisponibilidad(){
+    document.querySelectorAll('.producto[data-disponible]').forEach(producto => {
+        const estado = (producto.dataset.disponible || 'on').toLowerCase().trim();
+        const boton = producto.querySelector('.boton');
+
+        if (!boton) return;
+
+        if (estado === 'off') {
+            producto.classList.add('producto-agotado');
+
+            if (!producto.querySelector('.etiqueta-agotado')) {
+                const etiqueta = document.createElement('span');
+                etiqueta.className = 'etiqueta-agotado';
+                etiqueta.innerText = 'AGOTADO';
+                producto.insertBefore(etiqueta, producto.firstElementChild);
+            }
+
+            boton.disabled = true;
+            boton.innerText = 'Agotado';
+            boton.removeAttribute('onclick');
+        } else {
+            producto.classList.remove('producto-agotado');
+
+            const etiqueta = producto.querySelector('.etiqueta-agotado');
+            if (etiqueta) etiqueta.remove();
+
+            boton.disabled = false;
+            boton.innerText = 'Agregar';
+
+            // Reestablecer el onclick usando los datos originales del producto.
+            // Si ya existe, no se modifica.
+            if (!boton.hasAttribute('onclick')) {
+                const nombre = producto.querySelector('h3')?.innerText || 'Producto';
+                const precioTexto = producto.querySelector('.precio')?.innerText || '0';
+                const precio = parseInt(precioTexto.replace(/[^0-9]/g, ''), 10) || 0;
+                boton.setAttribute(
+                    'onclick',
+                    `agregar('${nombre.replace(/'/g, "\\'")}',${precio})`
+                );
+            }
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', aplicarDisponibilidad);
+
 function agregar(nombre,precio){
+    const productos = Array.from(document.querySelectorAll('.producto'));
+    const producto = productos.find(p => {
+        const titulo = p.querySelector('h3');
+        return titulo && titulo.innerText.trim() === nombre.trim();
+    });
+
+    if (producto && (producto.dataset.disponible || 'on').toLowerCase().trim() === 'off') {
+        alert('Este producto está agotado.');
+        return;
+    }
+
     carrito.push({nombre,precio})
     total+=precio
     actualizar()
