@@ -510,7 +510,7 @@ footer{
 <a href="#login">Login</a>
 </nav>
 
-<div class="carrito-icono" onclick="toggleCarrito()">
+<<div class="carrito-icono" id="carritoMovil">
 🛒 Carrito <span class="contador" id="contador">0</span>
 </div>
 
@@ -890,6 +890,112 @@ function iniciarSesion(){
         document.getElementById("mensajeLogin").innerText="Usuario o contraseña incorrectos"
     }
 }
+/* ===== CARRITO MOVIBLE CON MOUSE Y DEDO ===== */
+
+const carritoMovil = document.getElementById("carritoMovil");
+
+let moviendoCarrito = false;
+let seMovio = false;
+let offsetX = 0;
+let offsetY = 0;
+
+function iniciarMovimiento(e) {
+
+    moviendoCarrito = true;
+    seMovio = false;
+
+    const punto = e.touches ? e.touches[0] : e;
+    const rect = carritoMovil.getBoundingClientRect();
+
+    offsetX = punto.clientX - rect.left;
+    offsetY = punto.clientY - rect.top;
+
+    carritoMovil.style.right = "auto";
+    carritoMovil.style.bottom = "auto";
+
+    e.preventDefault();
+}
+
+function moverCarrito(e) {
+
+    if (!moviendoCarrito) return;
+
+    const punto = e.touches ? e.touches[0] : e;
+
+    let x = punto.clientX - offsetX;
+    let y = punto.clientY - offsetY;
+
+    const ancho = carritoMovil.offsetWidth;
+    const alto = carritoMovil.offsetHeight;
+
+    if (Math.abs(x - carritoMovil.offsetLeft) > 5 ||
+        Math.abs(y - carritoMovil.offsetTop) > 5) {
+        seMovio = true;
+    }
+
+    x = Math.max(0, Math.min(x, window.innerWidth - ancho));
+    y = Math.max(0, Math.min(y, window.innerHeight - alto));
+
+    carritoMovil.style.left = x + "px";
+    carritoMovil.style.top = y + "px";
+
+    if (e.touches) {
+        e.preventDefault();
+    }
+}
+
+function terminarMovimiento() {
+
+    if (!moviendoCarrito) return;
+
+    moviendoCarrito = false;
+
+    /* Solo abre el carrito si NO lo arrastramos */
+    if (!seMovio) {
+        toggleCarrito();
+    }
+}
+
+
+/* ===== MOUSE ===== */
+
+carritoMovil.addEventListener("mousedown", iniciarMovimiento);
+
+document.addEventListener("mousemove", moverCarrito);
+
+document.addEventListener("mouseup", terminarMovimiento);
+
+
+/* ===== CELULAR ===== */
+
+carritoMovil.addEventListener(
+    "touchstart",
+    iniciarMovimiento,
+    { passive:false }
+);
+
+document.addEventListener(
+    "touchmove",
+    moverCarrito,
+    { passive:false }
+);
+
+document.addEventListener(
+    "touchend",
+    terminarMovimiento
+); {
+    moviendoCarrito = false;
+}
+
+/* PC */
+carritoMovil.addEventListener("mousedown", iniciarMovimiento);
+document.addEventListener("mousemove", moverCarrito);
+document.addEventListener("mouseup", terminarMovimiento);
+
+/* CELULAR */
+carritoMovil.addEventListener("touchstart", iniciarMovimiento, {passive:true});
+document.addEventListener("touchmove", moverCarrito, {passive:false});
+document.addEventListener("touchend", terminarMovimiento);
 </script>
 
 </body>
