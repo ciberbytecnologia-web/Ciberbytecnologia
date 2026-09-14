@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ciberbyte Tecnología</title>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTCRCRQRBR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-KTCRCRQRBR');
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-KTCRCRQRBR');
 </script>
+
+
 <style>
 
 /* ===== CONFIGURACIÓN GENERAL ===== */
@@ -104,6 +115,91 @@ body{
     border-radius:15px;
     text-align:center;
     max-width:90%;
+}
+
+
+/* ===== FORMULARIO DOMICILIO ===== */
+
+.modalDomicilio{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+    justify-content:center;
+    align-items:center;
+    z-index:3000;
+    padding:20px;
+}
+
+.contenidoDomicilio{
+    background:white;
+    width:100%;
+    max-width:450px;
+    max-height:90vh;
+    overflow:auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.3);
+}
+
+.contenidoDomicilio h2{
+    margin-top:0;
+    text-align:center;
+}
+
+.campoDomicilio{
+    width:100%;
+    margin-bottom:12px;
+}
+
+.campoDomicilio label{
+    display:block;
+    text-align:left;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.campoDomicilio input,
+.campoDomicilio textarea,
+.campoDomicilio select{
+    width:100%;
+    padding:11px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.campoDomicilio textarea{
+    resize:vertical;
+    min-height:70px;
+}
+
+.btnEnviarPedido{
+    background:#25D366;
+    color:white;
+    border:none;
+    padding:13px;
+    width:100%;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.btnCancelarPedido{
+    background:#777;
+    color:white;
+    border:none;
+    padding:11px;
+    width:100%;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    margin-top:8px;
 }
 
 
@@ -239,6 +335,8 @@ section{
     cursor:pointer;
     box-shadow:0 5px 20px rgba(0,0,0,0.3);
     z-index:1000;
+    user-select:none;
+    touch-action:none;
 }
 
 .contador{
@@ -356,7 +454,7 @@ footer{
 
 
 /* ================================================= */
-/* ===== CONFIGURACIÓN PARA CELULARES ===== */
+/* ===== CONFIGURACIÓN PARA CELULARES ============= */
 /* ================================================= */
 
 @media screen and (max-width:768px){
@@ -368,18 +466,12 @@ footer{
         overflow-x:hidden;
     }
 
-
-    /* SECCIONES */
-
     section{
         width:100%;
         max-width:100%;
         padding:25px 15px;
         box-sizing:border-box;
     }
-
-
-    /* PRODUCTOS */
 
     .galeria{
         display:flex;
@@ -408,9 +500,6 @@ footer{
         object-fit:contain;
     }
 
-
-    /* BANNER */
-
     .banner{
         width:100%;
         padding:50px 15px;
@@ -424,9 +513,6 @@ footer{
     .banner p{
         font-size:16px;
     }
-
-
-    /* MENU */
 
     nav{
         width:100%;
@@ -442,9 +528,6 @@ footer{
         margin:5px;
     }
 
-
-    /* CARRITO */
-
     .carrito-icono{
         top:15px;
         right:15px;
@@ -454,9 +537,6 @@ footer{
         box-sizing:border-box;
     }
 
-
-    /* PANEL DEL CARRITO */
-
     #panelCarrito{
         width:100%;
         max-width:100%;
@@ -464,9 +544,6 @@ footer{
         padding:20px;
         box-sizing:border-box;
     }
-
-
-    /* MODAL NEQUI */
 
     .contenidoQR{
         width:90%;
@@ -480,17 +557,17 @@ footer{
         height:auto;
     }
 
-
-    /* LOGIN */
+    .contenidoDomicilio{
+        width:95%;
+        max-width:450px;
+        padding:20px;
+    }
 
     input{
         width:100%;
         max-width:300px;
         box-sizing:border-box;
     }
-
-
-    /* BOTÓN VOLVER ARRIBA */
 
     #btnArriba{
         right:20px;
@@ -500,478 +577,1519 @@ footer{
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
+
 <div class="banner">
+
 <h1>.</h1>
+
 <p>.</p>
+
 </div>
+
 </header>
 
+
 <nav>
+
 <a href="#">Inicio</a>
 <a href="#productos">Productos</a>
 <a href="#contacto">Contacto</a>
 <a href="#login">Login</a>
+
 </nav>
 
-<<div class="carrito-icono" id="carritoMovil">
+
+<div class="carrito-icono" id="carritoMovil">
+
 🛒 Carrito <span class="contador" id="contador">0</span>
+
 </div>
+
 
 <section>
+
 <h2>Bienvenido</h2>
-<p>En Ciberbyte Tecnología encontrarás accesorios tecnológicos y servicios de internet.</p>
+
+<p>
+En Ciberbyte Tecnología encontrarás accesorios tecnológicos y servicios de internet.
+</p>
+
 </section>
+
 
 <section id="productos">
+
 <h2>Productos</h2>
+
 <div class="galeria">
-    <div class="producto" data-disponible="on">
-        <img src="imagenes/Audifono Caja colores.jpeg">
-        <h3>Audifonos Manos Libres</h3>
-        <p class="precio">$12.000</p>
-        <button class="boton" onclick="agregar('Audifonos Manos libres',12000)">Agregar</button>
-    </div>
 
-     <div class="producto" data-disponible="on">
-        <img src="imagenes/DRON RC.jpeg">
-        <h3>Mini Dron RC Leading</h3>
-        <p class="precio">$120.000</p>
-        <button class="boton" onclick="agregar('Mini Dron RC Leading',120000)">Agregar</button>
-    </div>
 
-    <div class="producto" data-disponible="off">
-        <img src="imagenes/Mouse SD300.jpeg">
-        <h3>Mouse Cable SD300</h3>
-        <p class="precio">$12.000</p>
-        <button class="boton" onclick="agregar('Mouse Cable SD300',12000)">Agregar</button>
-    </div>
+<div class="producto" data-disponible="on">
 
-    <div class="producto" data-disponible="off">
-        <img src="imagenes/AIR PRO.jpeg">   
-        <h3>Audífonos Air Pro</h3>
-        <p class="precio">$60.000</p>
-        <button class="boton" onclick="agregar('Audífonos Air Pro',60000)">Agregar</button>
-    </div>
+<img src="imagenes/Audifono Caja colores.jpeg">
 
-    <div class="producto" data-disponible="off">
-        <img src="imagenes/AUDIFONOS NIKY.jpeg">
-        <h3>Audífonos NIKY</h3>
-        <p class="precio">$55.000</p>
-        <button class="boton" onclick="agregar('Audífonos NIKY',55000)">Agregar</button>
-    </div>
+<h3>Audifonos Manos Libres</h3>
 
-    <div class="producto" data-disponible="on">
-        <img src="imagenes/ANDROID TV.jpeg">
-        <h3>Android Tv</h3>
-        <p class="precio">$80.000</p>
-        <button class="boton" onclick="agregar('Android Tv',80000)">Agregar</button>
-    </div>
+<p class="precio">$12.000</p>
 
-    <div class="producto" data-disponible="off">
-        <img src="imagenes/Intercomunicador.jpeg">
-        <h3>Intercomunicador</h3>
-        <p class="precio">$60.000</p>
-        <button class="boton" onclick="agregar('Intercomunicador',60000)">Agregar</button>
-    </div>
+<button class="boton"
+onclick="agregar('Audifonos Manos libres',12000)">
+Agregar
+</button>
 
-    <div class="producto" data-disponible="on">
-        <img src="imagenes/Carga y juega.jpeg">
-        <h3>Carga y juega Xbox</h3>
-        <p class="precio">$20.000</p>
-        <button class="boton" onclick="agregar('Carga y juega Xbox',20000)">Agregar</button>
-    </div>
-    <div class="producto" data-disponible="on">
-        <img src="imagenes/MOUSE I OCZU.jpeg">
-        <h3>Mouse Inalambrico Oczu</h3>
-        <p class="precio">$26.000</p>
-        <button class="boton" onclick="agregar('Mouse Oczu',26000)">Agregar</button>
-    </div>
-      <div class="producto" data-disponible="off">
-        <img src="imagenes/MIni teclado TV (1).jpg">
-        <h3>Mini Teclado tv inalambrico</h3>
-        <p class="precio">$30.000</p>
-        <button class="boton" onclick="agregar('Mini Teclado tv',30000)">Agregar</button>
-    </div>
-      <div class="producto" data-disponible="on">
-        <img src="imagenes/Combo teclado mouse.jpg">
-        <h3>Combo Teclado y mouse</h3>
-        <p class="precio">$50.000</p>
-        <button class="boton" onclick="agregar('Combo teclado Y Mouse',50000)">Agregar</button>
-    </div>
-    <div class="producto" data-disponible="on">
-        <img src="imagenes/PLANCHA.jpeg">
-        <h3>Plancha Remigton </h3>
-        <p class="precio">$60.000</p>
-        <button class="boton" onclick="agregar('Plancha Remigton',60000)">Agregar</button>
-    </div>
-    <div class="producto" data-disponible="on">
-        <img src="imagenes/Ventilador helllo kity.jpeg">
-        <h3>Ventilador Hello Kity </h3>
-        <p class="precio">$25.000</p>
-        <button class="boton" onclick="agregar('Ventilador Hello kity',25000)">Agregar</button>
-    </div>
-      <div class="producto" data-disponible="on">
-        <img src="imagenes/camara 360.jpeg">
-        <h3>Camara 360 Pro </h3>
-        <p class="precio">$80.000</p>
-        <button class="boton" onclick="agregar('Camara 360 pro',80000)">Agregar</button>
-    </div><div class="producto" data-disponible="on">
-        <img src="imagenes/camara bombilo.jpeg">
-        <h3>Camara Bombillo </h3>
-        <p class="precio">$70.000</p>
-        <button class="boton" onclick="agregar('Camara Bombillo',70000)">Agregar</button>
-    
-    </div><div class="producto" data-disponible="on">
-        <img src="imagenes/PATINETA.jpeg">
-        <h3>Patineta Ganzago 350W </h3>
-        <p class="precio">$1.300.000</p>
-        <button class="boton" onclick="agregar('Patineta 350W',1300000)">Agregar</button>
-
-            </div><div class="producto" data-disponible="on">
-        <img src="imagenes/DATAFONO SONOQR .jpg">
-        <h3>Datafono bold sonoqr </h3>
-        <p class="precio">$79.900</p>
-        <button class="boton" onclick="agregar('Datafono bold sonoqr',79900)">Agregar</button>
-        
-    </div>
-    
-
-    
-      
 </div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/DRON RC.jpeg">
+
+<h3>Mini Dron RC Leading</h3>
+
+<p class="precio">$120.000</p>
+
+<button class="boton"
+onclick="agregar('Mini Dron RC Leading',120000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="off">
+
+<img src="imagenes/Mouse SD300.jpeg">
+
+<h3>Mouse Cable SD300</h3>
+
+<p class="precio">$12.000</p>
+
+<button class="boton"
+onclick="agregar('Mouse Cable SD300',12000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="off">
+
+<img src="imagenes/AIR PRO.jpeg">
+
+<h3>Audífonos Air Pro</h3>
+
+<p class="precio">$60.000</p>
+
+<button class="boton"
+onclick="agregar('Audífonos Air Pro',60000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="off">
+
+<img src="imagenes/AUDIFONOS NIKY.jpeg">
+
+<h3>Audífonos NIKY</h3>
+
+<p class="precio">$55.000</p>
+
+<button class="boton"
+onclick="agregar('Audífonos NIKY',55000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/ANDROID TV.jpeg">
+
+<h3>Android Tv</h3>
+
+<p class="precio">$80.000</p>
+
+<button class="boton"
+onclick="agregar('Android Tv',80000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="off">
+
+<img src="imagenes/Intercomunicador.jpeg">
+
+<h3>Intercomunicador</h3>
+
+<p class="precio">$60.000</p>
+
+<button class="boton"
+onclick="agregar('Intercomunicador',60000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/Carga y juega.jpeg">
+
+<h3>Carga y juega Xbox</h3>
+
+<p class="precio">$20.000</p>
+
+<button class="boton"
+onclick="agregar('Carga y juega Xbox',20000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/MOUSE I OCZU.jpeg">
+
+<h3>Mouse Inalambrico Oczu</h3>
+
+<p class="precio">$26.000</p>
+
+<button class="boton"
+onclick="agregar('Mouse Oczu',26000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="off">
+
+<img src="imagenes/MIni teclado TV (1).jpg">
+
+<h3>Mini Teclado tv inalambrico</h3>
+
+<p class="precio">$30.000</p>
+
+<button class="boton"
+onclick="agregar('Mini Teclado tv',30000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/Combo teclado mouse.jpg">
+
+<h3>Combo Teclado y mouse</h3>
+
+<p class="precio">$50.000</p>
+
+<button class="boton"
+onclick="agregar('Combo teclado Y Mouse',50000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/PLANCHA.jpeg">
+
+<h3>Plancha Remigton</h3>
+
+<p class="precio">$60.000</p>
+
+<button class="boton"
+onclick="agregar('Plancha Remigton',60000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/Ventilador helllo kity.jpeg">
+
+<h3>Ventilador Hello Kity</h3>
+
+<p class="precio">$25.000</p>
+
+<button class="boton"
+onclick="agregar('Ventilador Hello kity',25000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/camara 360.jpeg">
+
+<h3>Camara 360 Pro</h3>
+
+<p class="precio">$80.000</p>
+
+<button class="boton"
+onclick="agregar('Camara 360 pro',80000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/camara bombilo.jpeg">
+
+<h3>Camara Bombillo</h3>
+
+<p class="precio">$70.000</p>
+
+<button class="boton"
+onclick="agregar('Camara Bombillo',70000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/PATINETA.jpeg">
+
+<h3>Patineta Ganzago 350W</h3>
+
+<p class="precio">$1.300.000</p>
+
+<button class="boton"
+onclick="agregar('Patineta 350W',1300000)">
+Agregar
+</button>
+
+</div>
+
+
+<div class="producto" data-disponible="on">
+
+<img src="imagenes/DATAFONO SONOQR .jpg">
+
+<h3>Datafono bold sonoqr</h3>
+
+<p class="precio">$79.900</p>
+
+<button class="boton"
+onclick="agregar('Datafono bold sonoqr',79900)">
+Agregar
+</button>
+
+</div>
+
+
+</div>
+
 </section>
+
+
+<!-- ===== PANEL DEL CARRITO ===== -->
 
 <div id="panelCarrito">
-    <h2>
-        Tu carrito 
-        <button style="border:none; background:none; cursor:pointer; font-size:18px;" onclick="cerrarCarrito()">❌</button>
-    </h2>
 
-    <div id="listaCarrito"></div>
+<h2>
 
-    <p class="total">Total: $<span id="total">0</span></p>
+Tu carrito
 
-    <button class="comprar" onclick="pagar()">
-        Comprar por WhatsApp
-    </button>
-    
-    <button class="nequi" onclick="mostrarQR()">
-        💜 Pagar con Nequi
-    </button>
+<button
+style="border:none; background:none; cursor:pointer; font-size:18px;"
+onclick="cerrarCarrito()">
+
+❌
+
+</button>
+
+</h2>
+
+
+<div id="listaCarrito"></div>
+
+
+<p class="total">
+
+Total: $<span id="total">0</span>
+
+</p>
+
+
+<button class="comprar" onclick="pagar()">
+
+Comprar por WhatsApp
+
+</button>
+
+
+<button class="nequi" onclick="mostrarQR()">
+
+💜 Pagar con Nequi
+
+</button>
+
 </div>
+
+
+<!-- ===== CONTACTO ===== -->
 
 <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <p>📍 Bogotá - Colombia<br>Calle 21 Sur #11A-27 Este</p>
-    <p>📧 ciberbyte.ms@gmail.com</p>
-    <p>📱 +57 300 367 3598</p>
-    <iframe src="https://www.google.com/maps?q=calle%2021%20sur%2011a-27%20este%20bogota&output=embed" width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
+
+<h2>Contacto</h2>
+
+<p>
+📍 Bogotá - Colombia<br>
+Calle 21 Sur #11A-27 Este
+</p>
+
+<p>
+📧 ciberbyte.ms@gmail.com
+</p>
+
+<p>
+📱 +57 300 367 3598
+</p>
+
+<iframe
+src="https://www.google.com/maps?q=calle%2021%20sur%2011a-27%20este%20bogota&output=embed"
+width="100%"
+height="300"
+style="border:0;border-radius:10px;">
+</iframe>
+
 </section>
+
+
+<!-- ===== LOGIN ===== -->
 
 <section id="login">
-    <h2>Iniciar sesión</h2>
-    <input type="text" id="usuario" placeholder="Usuario"><br><br>
-    <input type="password" id="clave" placeholder="Contraseña"><br><br>
-    <button class="boton" onclick="registrar()">Registrarse</button>
-    <button class="boton" onclick="iniciarSesion()">Entrar</button>
-    <p id="mensajeLogin"></p>
+
+<h2>Iniciar sesión</h2>
+
+<input
+type="text"
+id="usuario"
+placeholder="Usuario">
+
+<br><br>
+
+<input
+type="password"
+id="clave"
+placeholder="Contraseña">
+
+<br><br>
+
+<button class="boton" onclick="registrar()">
+Registrarse
+</button>
+
+<button class="boton" onclick="iniciarSesion()">
+Entrar
+</button>
+
+<p id="mensajeLogin"></p>
+
 </section>
 
+
+<!-- ===== MODAL QR NEQUI ===== -->
+
 <div id="qrNequi" class="modalQR">
-    <div class="contenidoQR">
-        <h3>Escanea para pagar con Nequi</h3>
-        <h2 style="color: #6A1B9A;">Total: $<span id="montoNequiModal">0</span></h2>
-        <p>Recuerda enviar el comprobante al 3003673598</p>
-        
-        <img src="imagenes/QR NEQU.jpeg" width="250">
-        <br>
-        
-        <button class="nequi" onclick="confirmarPagoNequi()">¡Ya pagué!</button>
-        <button class="boton" style="margin-top:10px; width: 100%;" onclick="cerrarQR()">Cerrar</button>
-    </div>
+
+<div class="contenidoQR">
+
+<h3>Escanea para pagar con Nequi</h3>
+
+<h2 style="color:#6A1B9A;">
+
+Total:
+$<span id="montoNequiModal">0</span>
+
+</h2>
+
+<p>
+Recuerda enviar el comprobante al 3003673598
+</p>
+
+<img
+src="imagenes/QR NEQU.jpeg"
+width="250"
+alt="QR Nequi">
+
+<br>
+
+<button
+class="nequi"
+onclick="confirmarPagoNequi()">
+
+¡Ya pagué!
+
+</button>
+
+<button
+class="boton"
+style="margin-top:10px; width:100%;"
+onclick="cerrarQR()">
+
+Cerrar
+
+</button>
+
 </div>
 
+</div>
+
+
+<!-- ===== FORMULARIO DOMICILIO ===== -->
+
+<div id="formularioDomicilio" class="modalDomicilio">
+
+<div class="contenidoDomicilio">
+
+<h2>📦 Datos para el domicilio</h2>
+
+<p style="text-align:center;">
+
+¡Gracias por tu compra! 💜<br>
+
+Completa tus datos para realizar la entrega.
+
+</p>
+
+
+<div class="campoDomicilio">
+
+<label>
+Nombre completo *
+</label>
+
+<input
+type="text"
+id="nombreCliente"
+placeholder="Ej: Juan Pérez">
+
+</div>
+
+
+<div class="campoDomicilio">
+
+<label>
+WhatsApp / Teléfono *
+</label>
+
+<input
+type="tel"
+id="telefonoCliente"
+placeholder="Ej: 3001234567">
+
+</div>
+
+
+<div class="campoDomicilio">
+
+<label>
+Dirección *
+</label>
+
+<input
+type="text"
+id="direccionCliente"
+placeholder="Ej: Calle 21 Sur #11A-27">
+
+</div>
+
+
+<div class="campoDomicilio">
+
+<label>
+Barrio *
+</label>
+
+<input
+type="text"
+id="barrioCliente"
+placeholder="Nombre del barrio">
+
+</div>
+
+
+<div class="campoDomicilio">
+
+<label>
+Ciudad *
+</label>
+
+<input
+type="text"
+id="ciudadCliente"
+value="Bogotá">
+
+</div>
+
+
+<div class="campoDomicilio">
+
+<label>
+Referencia para llegar
+</label>
+
+<textarea
+id="referenciaCliente"
+placeholder="Ej: Casa de rejas negras, frente al parque...">
+</textarea>
+
+</div>
+
+
+<button
+class="btnEnviarPedido"
+onclick="enviarPedidoDomicilio()">
+
+📦 ENVIAR PEDIDO
+
+</button>
+
+
+<button
+class="btnCancelarPedido"
+onclick="cerrarFormularioDomicilio()">
+
+Cancelar
+
+</button>
+
+</div>
+
+</div>
+
+
 <footer>
-    <p>© 2026 Ciberbyte Tecnología</p>
+
+<p>
+© 2026 Ciberbyte Tecnología
+</p>
+
 </footer>
 
-<button onclick="volverArriba()" id="btnArriba">⬆</button>
+
+<button
+onclick="volverArriba()"
+id="btnArriba">
+
+⬆
+
+</button>
+
 
 <script>
 
 
+/* ===== BOTÓN VOLVER ARRIBA ===== */
 
 window.onscroll=function(){
-    let boton=document.getElementById("btnArriba")
+
+    let boton=document.getElementById("btnArriba");
+
     if(document.documentElement.scrollTop>300){
-        boton.style.display="block"
+
+        boton.style.display="block";
+
     }else{
-        boton.style.display="none"
+
+        boton.style.display="none";
+
     }
-}
+
+};
+
 
 function volverArriba(){
+
     window.scrollTo({
+
         top:0,
         behavior:"smooth"
-    })
+
+    });
+
 }
 
-let carrito=[]
-let total=0
+
+/* ===== CARRITO ===== */
+
+let carrito=[];
+
+let total=0;
+
+
+/* ===== DISPONIBILIDAD ===== */
 
 function aplicarDisponibilidad(){
+
     document.querySelectorAll('.producto[data-disponible]').forEach(producto => {
-        const estado = (producto.dataset.disponible || 'on').toLowerCase().trim();
-        const boton = producto.querySelector('.boton');
 
-        if (!boton) return;
+        const estado=(producto.dataset.disponible || 'on')
+            .toLowerCase()
+            .trim();
 
-        if (estado === 'off') {
+        const boton=producto.querySelector('.boton');
+
+        if(!boton) return;
+
+
+        if(estado==='off'){
+
             producto.classList.add('producto-agotado');
 
-            if (!producto.querySelector('.etiqueta-agotado')) {
-                const etiqueta = document.createElement('span');
-                etiqueta.className = 'etiqueta-agotado';
-                etiqueta.innerText = 'AGOTADO';
-                producto.insertBefore(etiqueta, producto.firstElementChild);
+
+            if(!producto.querySelector('.etiqueta-agotado')){
+
+                const etiqueta=document.createElement('span');
+
+                etiqueta.className='etiqueta-agotado';
+
+                etiqueta.innerText='AGOTADO';
+
+                producto.insertBefore(
+                    etiqueta,
+                    producto.firstElementChild
+                );
+
             }
 
-            boton.disabled = true;
-            boton.innerText = 'Agotado';
+
+            boton.disabled=true;
+
+            boton.innerText='Agotado';
+
             boton.removeAttribute('onclick');
-        } else {
+
+
+        }else{
+
             producto.classList.remove('producto-agotado');
 
-            const etiqueta = producto.querySelector('.etiqueta-agotado');
-            if (etiqueta) etiqueta.remove();
 
-            boton.disabled = false;
-            boton.innerText = 'Agregar';
+            const etiqueta=
+                producto.querySelector('.etiqueta-agotado');
 
-            // Reestablecer el onclick usando los datos originales del producto.
-            // Si ya existe, no se modifica.
-            if (!boton.hasAttribute('onclick')) {
-                const nombre = producto.querySelector('h3')?.innerText || 'Producto';
-                const precioTexto = producto.querySelector('.precio')?.innerText || '0';
-                const precio = parseInt(precioTexto.replace(/[^0-9]/g, ''), 10) || 0;
+            if(etiqueta) etiqueta.remove();
+
+
+            boton.disabled=false;
+
+            boton.innerText='Agregar';
+
+
+            if(!boton.hasAttribute('onclick')){
+
+                const nombre=
+                    producto.querySelector('h3')?.innerText ||
+                    'Producto';
+
+                const precioTexto=
+                    producto.querySelector('.precio')?.innerText ||
+                    '0';
+
+                const precio=
+                    parseInt(
+                        precioTexto.replace(/[^0-9]/g,''),
+                        10
+                    ) || 0;
+
+
                 boton.setAttribute(
                     'onclick',
-                    `agregar('${nombre.replace(/'/g, "\\'")}',${precio})`
+                    `agregar('${nombre.replace(/'/g,"\\'")}',${precio})`
                 );
+
             }
+
         }
+
     });
+
 }
 
-document.addEventListener('DOMContentLoaded', aplicarDisponibilidad);
+
+document.addEventListener(
+    'DOMContentLoaded',
+    aplicarDisponibilidad
+);
+
+
+/* ===== AGREGAR PRODUCTO ===== */
 
 function agregar(nombre,precio){
-    const productos = Array.from(document.querySelectorAll('.producto'));
-    const producto = productos.find(p => {
-        const titulo = p.querySelector('h3');
-        return titulo && titulo.innerText.trim() === nombre.trim();
+
+    const productos=
+        Array.from(document.querySelectorAll('.producto'));
+
+
+    const producto=
+        productos.find(p => {
+
+            const titulo=p.querySelector('h3');
+
+            return titulo &&
+                titulo.innerText.trim() === nombre.trim();
+
+        });
+
+
+    if(producto &&
+       (producto.dataset.disponible || 'on')
+       .toLowerCase()
+       .trim()==='off'){
+
+        alert('Este producto está agotado.');
+
+        return;
+
+    }
+
+
+    carrito.push({
+        nombre:nombre,
+        precio:precio
     });
 
-    if (producto && (producto.dataset.disponible || 'on').toLowerCase().trim() === 'off') {
-        alert('Este producto está agotado.');
-        return;
-    }
 
-    carrito.push({nombre,precio})
-    total+=precio
-    actualizar()
+    total+=precio;
 
-    let carritoIcono=document.querySelector(".carrito-icono")
-    carritoIcono.style.transform="scale(1.3)"
+
+    actualizar();
+
+
+    /* ===== GOOGLE ANALYTICS ===== */
+
+    gtag('event','add_to_cart',{
+        currency:'COP',
+        value:precio,
+        items:[{
+            item_name:nombre,
+            price:precio
+        }]
+    });
+
+
+    let carritoIcono=
+        document.querySelector(".carrito-icono");
+
+
+    carritoIcono.style.transform="scale(1.3)";
+
+
     setTimeout(()=>{
-        carritoIcono.style.transform="scale(1)"
-    },300)
+
+        carritoIcono.style.transform="scale(1)";
+
+    },300);
+
 }
+
+
+/* ===== ACTUALIZAR CARRITO ===== */
 
 function actualizar(){
-    let lista=document.getElementById("listaCarrito")
-    lista.innerHTML=""
+
+    let lista=
+        document.getElementById("listaCarrito");
+
+
+    lista.innerHTML="";
+
 
     carrito.forEach((p,i)=>{
-        lista.innerHTML+=`
-        <div class="itemCarrito">
-        ${p.nombre} - $${p.precio}
-        <button style="border:none; background:none; cursor:pointer;" onclick="eliminar(${i})">❌</button>
-        </div>
-        `
-    })
 
-    document.getElementById("total").innerText=total
-    document.getElementById("contador").innerText=carrito.length
+        lista.innerHTML+=`
+
+        <div class="itemCarrito">
+
+            <span>
+                ${p.nombre} - $${p.precio.toLocaleString("es-CO")}
+            </span>
+
+            <button
+                style="border:none; background:none; cursor:pointer;"
+                onclick="eliminar(${i})">
+
+                ❌
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("total").innerText=
+        total.toLocaleString("es-CO");
+
+
+    document.getElementById("contador").innerText=
+        carrito.length;
+
 }
+
+
+/* ===== ELIMINAR PRODUCTO ===== */
 
 function eliminar(i){
-    total-=carrito[i].precio
-    carrito.splice(i,1)
-    actualizar()
+
+    total-=carrito[i].precio;
+
+    carrito.splice(i,1);
+
+    actualizar();
+
 }
+
+
+/* ===== ABRIR / CERRAR CARRITO ===== */
 
 function toggleCarrito(){
-    let panel=document.getElementById("panelCarrito")
+
+    let panel=
+        document.getElementById("panelCarrito");
+
+
     if(panel.style.right=="0px"){
-        panel.style.right="-400px"
+
+        panel.style.right="-400px";
+
     }else{
-        panel.style.right="0px"
+
+        panel.style.right="0px";
+
     }
+
 }
+
 
 function cerrarCarrito(){
-    document.getElementById("panelCarrito").style.right="-400px"
+
+    document.getElementById(
+        "panelCarrito"
+    ).style.right="-400px";
+
 }
+
+
+/* ===== COMPRA DIRECTA POR WHATSAPP ===== */
 
 function pagar(){
-    if(carrito.length === 0){
-        alert("Agrega productos al carrito primero.")
-        return
+
+    if(carrito.length===0){
+
+        alert(
+            "Agrega productos al carrito primero."
+        );
+
+        return;
+
     }
-    let mensaje="Hola quiero comprar:%0A"
+
+
+    let mensaje=
+        "Hola quiero comprar:%0A";
+
+
     carrito.forEach(p=>{
-        mensaje+=p.nombre+" - $"+p.precio+"%0A"
-    })
-    mensaje+="Total: $"+total
-    window.open("https://wa.me/573003673598?text="+mensaje)
+
+        mensaje+=
+            p.nombre+
+            " - $"+
+            p.precio.toLocaleString("es-CO")+
+            "%0A";
+
+    });
+
+
+    mensaje+=
+        "Total: $"+
+        total.toLocaleString("es-CO");
+
+
+    gtag('event','click_whatsapp',{
+        metodo:'compra_directa',
+        valor:total
+    });
+
+
+    window.open(
+        "https://wa.me/573003673598?text="+mensaje,
+        "_blank"
+    );
+
 }
 
-/* ----- LOGICA DEL CÓDIGO QR Y NEQUI ----- */
+
+/* ================================================= */
+/* ===== LÓGICA QR NEQUI ============================ */
+/* ================================================= */
+
 function mostrarQR(){
-    if(carrito.length === 0){
-        alert("El carrito está vacío. Agrega productos para pagar.")
-        return
+
+    if(carrito.length===0){
+
+        alert(
+            "El carrito está vacío. Agrega productos para pagar."
+        );
+
+        return;
+
     }
-    document.getElementById("montoNequiModal").innerText = total
-    document.getElementById("qrNequi").style.display="flex"
+
+
+    document.getElementById(
+        "montoNequiModal"
+    ).innerText=
+        total.toLocaleString("es-CO");
+
+
+    document.getElementById(
+        "qrNequi"
+    ).style.display="flex";
+
+
+    gtag('event','begin_checkout',{
+        currency:'COP',
+        value:total
+    });
+
 }
+
 
 function cerrarQR(){
-    document.getElementById("qrNequi").style.display="none"
+
+    document.getElementById(
+        "qrNequi"
+    ).style.display="none";
+
 }
 
-function confirmarPagoNequi() {
-    // 1. Armar el mensaje para WhatsApp indicando que fue por Nequi
-    let mensaje="Hola, acabo de realizar un pago por Nequi. Mi pedido es:%0A"
+
+/* ===== BOTÓN YA PAGUÉ ===== */
+
+function confirmarPagoNequi(){
+
+    if(carrito.length===0){
+
+        alert("El carrito está vacío.");
+
+        return;
+
+    }
+
+
+    /*
+    El cliente indica que ya realizó el pago.
+    Aquí NO se vacía el carrito porque todavía
+    necesitamos los productos para el formulario.
+    */
+
+
+    gtag('event','pago_iniciado',{
+        metodo_pago:'Nequi',
+        valor:total
+    });
+
+
+    cerrarQR();
+
+
+    document.getElementById(
+        "formularioDomicilio"
+    ).style.display="flex";
+
+}
+
+
+/* ===== CERRAR FORMULARIO ===== */
+
+function cerrarFormularioDomicilio(){
+
+    document.getElementById(
+        "formularioDomicilio"
+    ).style.display="none";
+
+}
+
+
+/* ================================================= */
+/* ===== ENVIAR PEDIDO + DATOS DEL DOMICILIO ====== */
+/* ================================================= */
+
+function enviarPedidoDomicilio(){
+
+    const nombre=
+        document.getElementById(
+            "nombreCliente"
+        ).value.trim();
+
+
+    const telefono=
+        document.getElementById(
+            "telefonoCliente"
+        ).value.trim();
+
+
+    const direccion=
+        document.getElementById(
+            "direccionCliente"
+        ).value.trim();
+
+
+    const barrio=
+        document.getElementById(
+            "barrioCliente"
+        ).value.trim();
+
+
+    const ciudad=
+        document.getElementById(
+            "ciudadCliente"
+        ).value.trim();
+
+
+    const referencia=
+        document.getElementById(
+            "referenciaCliente"
+        ).value.trim();
+
+
+    /* ===== VALIDAR DATOS ===== */
+
+    if(
+        !nombre ||
+        !telefono ||
+        !direccion ||
+        !barrio ||
+        !ciudad
+    ){
+
+        alert(
+            "Por favor completa todos los campos obligatorios."
+        );
+
+        return;
+
+    }
+
+
+    /* ===== CREAR MENSAJE ===== */
+
+    let mensaje=
+        "Hola, acabo de realizar un pago por Nequi. 💜%0A%0A";
+
+
+    mensaje+=
+        "📦 *NUEVO PEDIDO*%0A%0A";
+
+
+    /* ===== PRODUCTOS ===== */
+
+    mensaje+=
+        "🛒 *PRODUCTOS:*%0A";
+
+
     carrito.forEach(p=>{
-        mensaje+=p.nombre+" - $"+p.precio+"%0A"
-    })
-    mensaje+="Total pagado: $"+total+"%0A%0A"
-    mensaje+="Aquí te envío el comprobante de pago:"
 
-    // 2. Abrir WhatsApp
-    window.open("https://wa.me/573003673598?text="+mensaje)
+        mensaje+=
+            "• "+
+            p.nombre+
+            " - $"+
+            p.precio.toLocaleString("es-CO")+
+            "%0A";
 
-    // 3. Vaciar carrito y cerrar las ventanas
-    carrito = []; 
-    total = 0;    
-    actualizar(); 
-    cerrarQR();   
-    cerrarCarrito(); 
+    });
+
+
+    mensaje+=
+        "%0A💰 *TOTAL PAGADO: $"+
+        total.toLocaleString("es-CO")+
+        "*%0A%0A";
+
+
+    /* ===== DATOS CLIENTE ===== */
+
+    mensaje+=
+        "👤 *DATOS DEL CLIENTE*%0A";
+
+
+    mensaje+=
+        "Nombre: "+
+        nombre+
+        "%0A";
+
+
+    mensaje+=
+        "📱 WhatsApp: "+
+        telefono+
+        "%0A";
+
+
+    mensaje+=
+        "📍 Dirección: "+
+        direccion+
+        "%0A";
+
+
+    mensaje+=
+        "🏘️ Barrio: "+
+        barrio+
+        "%0A";
+
+
+    mensaje+=
+        "🌆 Ciudad: "+
+        ciudad+
+        "%0A";
+
+
+    if(referencia){
+
+        mensaje+=
+            "📝 Referencia: "+
+            referencia+
+            "%0A";
+
+    }
+
+
+    mensaje+=
+        "%0A📸 Enviaré el comprobante de pago.";
+
+
+    /* ===== GOOGLE ANALYTICS ===== */
+
+    gtag('event','pedido_domicilio',{
+
+        currency:'COP',
+
+        value:total,
+
+        metodo_pago:'Nequi'
+
+    });
+
+
+    /* ===== ABRIR WHATSAPP ===== */
+
+    window.open(
+
+        "https://wa.me/573003673598?text="+
+        mensaje,
+
+        "_blank"
+
+    );
+
+
+    /* ===== VACIAR CARRITO ===== */
+
+    carrito=[];
+
+    total=0;
+
+    actualizar();
+
+
+    cerrarFormularioDomicilio();
+
+    cerrarCarrito();
+
 }
 
-/* LOGIN */
+
+/* ================================================= */
+/* ===== LOGIN ===================================== */
+/* ================================================= */
+
 function registrar(){
-    let usuario=document.getElementById("usuario").value
-    let clave=document.getElementById("clave").value
-    localStorage.setItem("usuario",usuario)
-    localStorage.setItem("clave",clave)
-    document.getElementById("mensajeLogin").innerText="Usuario registrado"
+
+    let usuario=
+        document.getElementById(
+            "usuario"
+        ).value;
+
+
+    let clave=
+        document.getElementById(
+            "clave"
+        ).value;
+
+
+    localStorage.setItem(
+        "usuario",
+        usuario
+    );
+
+
+    localStorage.setItem(
+        "clave",
+        clave
+    );
+
+
+    document.getElementById(
+        "mensajeLogin"
+    ).innerText=
+        "Usuario registrado";
+
 }
+
 
 function iniciarSesion(){
-    let usuario=document.getElementById("usuario").value
-    let clave=document.getElementById("clave").value
-    let usuarioGuardado=localStorage.getItem("usuario")
-    let claveGuardada=localStorage.getItem("clave")
 
-    if(usuario===usuarioGuardado && clave===claveGuardada){
-        document.getElementById("mensajeLogin").innerText="Bienvenido "+usuario
+    let usuario=
+        document.getElementById(
+            "usuario"
+        ).value;
+
+
+    let clave=
+        document.getElementById(
+            "clave"
+        ).value;
+
+
+    let usuarioGuardado=
+        localStorage.getItem(
+            "usuario"
+        );
+
+
+    let claveGuardada=
+        localStorage.getItem(
+            "clave"
+        );
+
+
+    if(
+        usuario===usuarioGuardado &&
+        clave===claveGuardada
+    ){
+
+        document.getElementById(
+            "mensajeLogin"
+        ).innerText=
+            "Bienvenido "+usuario;
+
     }else{
-        document.getElementById("mensajeLogin").innerText="Usuario o contraseña incorrectos"
+
+        document.getElementById(
+            "mensajeLogin"
+        ).innerText=
+            "Usuario o contraseña incorrectos";
+
     }
+
 }
-/* ===== CARRITO MOVIBLE CON MOUSE Y DEDO ===== */
 
-const carritoMovil = document.getElementById("carritoMovil");
 
-let moviendoCarrito = false;
-let seMovio = false;
-let offsetX = 0;
-let offsetY = 0;
+/* ================================================= */
+/* ===== CARRITO MOVIBLE CON MOUSE Y DEDO ========== */
+/* ================================================= */
 
-function iniciarMovimiento(e) {
+const carritoMovil=
+    document.getElementById(
+        "carritoMovil"
+    );
 
-    moviendoCarrito = true;
-    seMovio = false;
 
-    const punto = e.touches ? e.touches[0] : e;
-    const rect = carritoMovil.getBoundingClientRect();
+let moviendoCarrito=false;
 
-    offsetX = punto.clientX - rect.left;
-    offsetY = punto.clientY - rect.top;
+let seMovio=false;
 
-    carritoMovil.style.right = "auto";
-    carritoMovil.style.bottom = "auto";
+let offsetX=0;
+
+let offsetY=0;
+
+
+function iniciarMovimiento(e){
+
+    moviendoCarrito=true;
+
+    seMovio=false;
+
+
+    const punto=
+        e.touches ?
+        e.touches[0] :
+        e;
+
+
+    const rect=
+        carritoMovil.getBoundingClientRect();
+
+
+    offsetX=
+        punto.clientX-
+        rect.left;
+
+
+    offsetY=
+        punto.clientY-
+        rect.top;
+
+
+    carritoMovil.style.right="auto";
+
+    carritoMovil.style.bottom="auto";
+
 
     e.preventDefault();
+
 }
 
-function moverCarrito(e) {
 
-    if (!moviendoCarrito) return;
+function moverCarrito(e){
 
-    const punto = e.touches ? e.touches[0] : e;
+    if(!moviendoCarrito)
+        return;
 
-    let x = punto.clientX - offsetX;
-    let y = punto.clientY - offsetY;
 
-    const ancho = carritoMovil.offsetWidth;
-    const alto = carritoMovil.offsetHeight;
+    const punto=
+        e.touches ?
+        e.touches[0] :
+        e;
 
-    if (Math.abs(x - carritoMovil.offsetLeft) > 5 ||
-        Math.abs(y - carritoMovil.offsetTop) > 5) {
-        seMovio = true;
+
+    let x=
+        punto.clientX-
+        offsetX;
+
+
+    let y=
+        punto.clientY-
+        offsetY;
+
+
+    const ancho=
+        carritoMovil.offsetWidth;
+
+
+    const alto=
+        carritoMovil.offsetHeight;
+
+
+    if(
+        Math.abs(
+            x-carritoMovil.offsetLeft
+        )>5 ||
+
+        Math.abs(
+            y-carritoMovil.offsetTop
+        )>5
+    ){
+
+        seMovio=true;
+
     }
 
-    x = Math.max(0, Math.min(x, window.innerWidth - ancho));
-    y = Math.max(0, Math.min(y, window.innerHeight - alto));
 
-    carritoMovil.style.left = x + "px";
-    carritoMovil.style.top = y + "px";
+    x=Math.max(
+        0,
+        Math.min(
+            x,
+            window.innerWidth-ancho
+        )
+    );
 
-    if (e.touches) {
+
+    y=Math.max(
+        0,
+        Math.min(
+            y,
+            window.innerHeight-alto
+        )
+    );
+
+
+    carritoMovil.style.left=
+        x+"px";
+
+
+    carritoMovil.style.top=
+        y+"px";
+
+
+    if(e.touches){
+
         e.preventDefault();
+
     }
+
 }
 
-function terminarMovimiento() {
 
-    if (!moviendoCarrito) return;
+function terminarMovimiento(){
 
-    moviendoCarrito = false;
+    if(!moviendoCarrito)
+        return;
 
-    /* Solo abre el carrito si NO lo arrastramos */
-    if (!seMovio) {
+
+    moviendoCarrito=false;
+
+
+    /*
+    Solo abre el carrito si el usuario
+    no lo estaba arrastrando.
+    */
+
+    if(!seMovio){
+
         toggleCarrito();
+
     }
+
 }
 
 
 /* ===== MOUSE ===== */
 
-carritoMovil.addEventListener("mousedown", iniciarMovimiento);
+carritoMovil.addEventListener(
+    "mousedown",
+    iniciarMovimiento
+);
 
-document.addEventListener("mousemove", moverCarrito);
+document.addEventListener(
+    "mousemove",
+    moverCarrito
+);
 
-document.addEventListener("mouseup", terminarMovimiento);
+document.addEventListener(
+    "mouseup",
+    terminarMovimiento
+);
 
 
 /* ===== CELULAR ===== */
@@ -979,32 +2097,23 @@ document.addEventListener("mouseup", terminarMovimiento);
 carritoMovil.addEventListener(
     "touchstart",
     iniciarMovimiento,
-    { passive:false }
+    {passive:false}
 );
 
 document.addEventListener(
     "touchmove",
     moverCarrito,
-    { passive:false }
+    {passive:false}
 );
 
 document.addEventListener(
     "touchend",
     terminarMovimiento
-); {
-    moviendoCarrito = false;
-}
+);
 
-/* PC */
-carritoMovil.addEventListener("mousedown", iniciarMovimiento);
-document.addEventListener("mousemove", moverCarrito);
-document.addEventListener("mouseup", terminarMovimiento);
 
-/* CELULAR */
-carritoMovil.addEventListener("touchstart", iniciarMovimiento, {passive:true});
-document.addEventListener("touchmove", moverCarrito, {passive:false});
-document.addEventListener("touchend", terminarMovimiento);
 </script>
 
 </body>
-</html> 
+
+</html>
