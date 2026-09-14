@@ -19,14 +19,10 @@ function gtag(){
 }
 
 gtag('js', new Date());
-
 gtag('config', 'G-KTCRCRQRBR');
 </script>
 
-
 <style>
-
-/* ===== CONFIGURACIÓN GENERAL ===== */
 
 *{
     box-sizing:border-box;
@@ -45,7 +41,6 @@ body{
     font-family:Arial, sans-serif;
     background:#f5f5f5;
 }
-
 
 /* ===== PRODUCTOS AGOTADOS ===== */
 
@@ -78,7 +73,6 @@ body{
     box-shadow:0 2px 6px rgba(0,0,0,.2);
 }
 
-
 /* ===== BOTÓN NEQUI ===== */
 
 .nequi{
@@ -92,7 +86,6 @@ body{
     cursor:pointer;
     margin-top:10px;
 }
-
 
 /* ===== MODAL QR ===== */
 
@@ -117,8 +110,7 @@ body{
     max-width:90%;
 }
 
-
-/* ===== FORMULARIO DOMICILIO ===== */
+/* ===== FORMULARIO ENTREGA ===== */
 
 .modalDomicilio{
     display:none;
@@ -177,6 +169,37 @@ body{
     min-height:70px;
 }
 
+/* ===== OPCIONES DE ENTREGA ===== */
+
+.opcionesEntrega{
+    display:flex;
+    gap:10px;
+    margin:15px 0;
+}
+
+.opcionEntrega{
+    flex:1;
+    border:2px solid #ddd;
+    border-radius:10px;
+    padding:12px 5px;
+    background:#f8f8f8;
+    cursor:pointer;
+    font-weight:bold;
+    text-align:center;
+    font-size:15px;
+    transition:0.2s;
+}
+
+.opcionEntrega:hover{
+    border-color:#6A1B9A;
+}
+
+.opcionEntrega.seleccionada{
+    border-color:#6A1B9A;
+    background:#f0e5f5;
+    color:#6A1B9A;
+}
+
 .btnEnviarPedido{
     background:#25D366;
     color:white;
@@ -202,7 +225,6 @@ body{
     margin-top:8px;
 }
 
-
 /* ===== BANNER ===== */
 
 .banner{
@@ -223,7 +245,6 @@ body{
     font-size:20px;
 }
 
-
 /* ===== HEADER ===== */
 
 header{
@@ -232,7 +253,6 @@ header{
     text-align:center;
     padding:40px;
 }
-
 
 /* ===== MENU ===== */
 
@@ -250,7 +270,6 @@ nav a{
     color:black;
 }
 
-
 /* ===== SECCIONES ===== */
 
 section{
@@ -258,7 +277,6 @@ section{
     text-align:center;
     width:100%;
 }
-
 
 /* ===== PRODUCTOS ===== */
 
@@ -296,7 +314,6 @@ section{
     margin-top:10px;
 }
 
-
 /* ===== BOTONES ===== */
 
 .boton{
@@ -320,7 +337,6 @@ section{
     cursor:not-allowed;
     transform:none;
 }
-
 
 /* ===== CARRITO ===== */
 
@@ -347,7 +363,6 @@ section{
     font-size:12px;
     margin-left:5px;
 }
-
 
 /* ===== PANEL CARRITO ===== */
 
@@ -386,7 +401,6 @@ section{
     margin-top:20px;
 }
 
-
 /* ===== BOTÓN WHATSAPP ===== */
 
 .comprar{
@@ -401,14 +415,12 @@ section{
     margin-top:15px;
 }
 
-
 /* ===== CONTACTO ===== */
 
 .contacto{
     background:black;
     color:white;
 }
-
 
 /* ===== LOGIN ===== */
 
@@ -420,7 +432,6 @@ input{
     border:1px solid #ccc;
 }
 
-
 /* ===== FOOTER ===== */
 
 footer{
@@ -429,7 +440,6 @@ footer{
     text-align:center;
     padding:15px;
 }
-
 
 /* ===== BOTÓN VOLVER ARRIBA ===== */
 
@@ -452,10 +462,7 @@ footer{
     background:#333;
 }
 
-
-/* ================================================= */
-/* ===== CONFIGURACIÓN PARA CELULARES ============= */
-/* ================================================= */
+/* ===== CELULARES ===== */
 
 @media screen and (max-width:768px){
 
@@ -563,6 +570,14 @@ footer{
         padding:20px;
     }
 
+    .opcionesEntrega{
+        gap:8px;
+    }
+
+    .opcionEntrega{
+        font-size:14px;
+    }
+
     input{
         width:100%;
         max-width:300px;
@@ -580,9 +595,7 @@ footer{
 
 </head>
 
-
 <body>
-
 
 <header>
 
@@ -596,7 +609,6 @@ footer{
 
 </header>
 
-
 <nav>
 
 <a href="#">Inicio</a>
@@ -606,13 +618,11 @@ footer{
 
 </nav>
 
-
 <div class="carrito-icono" id="carritoMovil">
 
 🛒 Carrito <span class="contador" id="contador">0</span>
 
 </div>
-
 
 <section>
 
@@ -624,13 +634,11 @@ En Ciberbyte Tecnología encontrarás accesorios tecnológicos y servicios de in
 
 </section>
 
-
 <section id="productos">
 
 <h2>Productos</h2>
 
 <div class="galeria">
-
 
 <div class="producto" data-disponible="on">
 
@@ -647,7 +655,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="on">
 
 <img src="imagenes/DRON RC.jpeg">
@@ -662,7 +669,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="off">
 
@@ -679,7 +685,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="off">
 
 <img src="imagenes/AIR PRO.jpeg">
@@ -694,7 +699,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="off">
 
@@ -711,7 +715,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="on">
 
 <img src="imagenes/ANDROID TV.jpeg">
@@ -726,7 +729,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="off">
 
@@ -743,7 +745,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="on">
 
 <img src="imagenes/Carga y juega.jpeg">
@@ -758,7 +759,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="on">
 
@@ -775,7 +775,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="off">
 
 <img src="imagenes/MIni teclado TV (1).jpg">
@@ -790,7 +789,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="on">
 
@@ -807,7 +805,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="on">
 
 <img src="imagenes/PLANCHA.jpeg">
@@ -822,7 +819,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="on">
 
@@ -839,7 +835,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="on">
 
 <img src="imagenes/camara 360.jpeg">
@@ -854,7 +849,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="on">
 
@@ -871,7 +865,6 @@ Agregar
 
 </div>
 
-
 <div class="producto" data-disponible="on">
 
 <img src="imagenes/PATINETA.jpeg">
@@ -886,7 +879,6 @@ Agregar
 </button>
 
 </div>
-
 
 <div class="producto" data-disponible="on">
 
@@ -903,11 +895,9 @@ Agregar
 
 </div>
 
-
 </div>
 
 </section>
-
 
 <!-- ===== PANEL DEL CARRITO ===== -->
 
@@ -927,9 +917,7 @@ onclick="cerrarCarrito()">
 
 </h2>
 
-
 <div id="listaCarrito"></div>
-
 
 <p class="total">
 
@@ -937,13 +925,11 @@ Total: $<span id="total">0</span>
 
 </p>
 
-
 <button class="comprar" onclick="pagar()">
 
 Comprar por WhatsApp
 
 </button>
-
 
 <button class="nequi" onclick="mostrarQR()">
 
@@ -952,7 +938,6 @@ Comprar por WhatsApp
 </button>
 
 </div>
-
 
 <!-- ===== CONTACTO ===== -->
 
@@ -981,7 +966,6 @@ style="border:0;border-radius:10px;">
 </iframe>
 
 </section>
-
 
 <!-- ===== LOGIN ===== -->
 
@@ -1014,7 +998,6 @@ Entrar
 <p id="mensajeLogin"></p>
 
 </section>
-
 
 <!-- ===== MODAL QR NEQUI ===== -->
 
@@ -1063,23 +1046,47 @@ Cerrar
 
 </div>
 
-
-<!-- ===== FORMULARIO DOMICILIO ===== -->
+<!-- ===== FORMULARIO ENTREGA ===== -->
 
 <div id="formularioDomicilio" class="modalDomicilio">
 
 <div class="contenidoDomicilio">
 
-<h2>📦 Datos para el domicilio</h2>
+<h2>📦 Datos de entrega</h2>
 
 <p style="text-align:center;">
 
 ¡Gracias por tu compra! 💜<br>
 
-Completa tus datos para realizar la entrega.
+Selecciona cómo deseas recibir tu pedido.
 
 </p>
 
+<div class="opcionesEntrega">
+
+<button
+type="button"
+id="opcionDomicilio"
+class="opcionEntrega seleccionada"
+onclick="seleccionarEntrega('domicilio')">
+
+🚚<br>
+Domicilio
+
+</button>
+
+<button
+type="button"
+id="opcionTienda"
+class="opcionEntrega"
+onclick="seleccionarEntrega('tienda')">
+
+🏪<br>
+Recoger en tienda
+
+</button>
+
+</div>
 
 <div class="campoDomicilio">
 
@@ -1094,7 +1101,6 @@ placeholder="Ej: Juan Pérez">
 
 </div>
 
-
 <div class="campoDomicilio">
 
 <label>
@@ -1108,6 +1114,7 @@ placeholder="Ej: 3001234567">
 
 </div>
 
+<div id="datosDomicilio">
 
 <div class="campoDomicilio">
 
@@ -1122,7 +1129,6 @@ placeholder="Ej: Calle 21 Sur #11A-27">
 
 </div>
 
-
 <div class="campoDomicilio">
 
 <label>
@@ -1135,7 +1141,6 @@ id="barrioCliente"
 placeholder="Nombre del barrio">
 
 </div>
-
 
 <div class="campoDomicilio">
 
@@ -1150,7 +1155,6 @@ value="Bogotá">
 
 </div>
 
-
 <div class="campoDomicilio">
 
 <label>
@@ -1164,15 +1168,15 @@ placeholder="Ej: Casa de rejas negras, frente al parque...">
 
 </div>
 
+</div>
 
 <button
 class="btnEnviarPedido"
 onclick="enviarPedidoDomicilio()">
 
-📦 ENVIAR PEDIDO
+📦 ENVIAR PEDIDO POR WHATSAPP
 
 </button>
-
 
 <button
 class="btnCancelarPedido"
@@ -1186,7 +1190,6 @@ Cancelar
 
 </div>
 
-
 <footer>
 
 <p>
@@ -1194,7 +1197,6 @@ Cancelar
 </p>
 
 </footer>
-
 
 <button
 onclick="volverArriba()"
@@ -1204,9 +1206,7 @@ id="btnArriba">
 
 </button>
 
-
 <script>
-
 
 /* ===== BOTÓN VOLVER ARRIBA ===== */
 
@@ -1226,25 +1226,19 @@ window.onscroll=function(){
 
 };
 
-
 function volverArriba(){
 
     window.scrollTo({
-
         top:0,
         behavior:"smooth"
-
     });
 
 }
 
-
 /* ===== CARRITO ===== */
 
 let carrito=[];
-
 let total=0;
-
 
 /* ===== DISPONIBILIDAD ===== */
 
@@ -1260,18 +1254,15 @@ function aplicarDisponibilidad(){
 
         if(!boton) return;
 
-
         if(estado==='off'){
 
             producto.classList.add('producto-agotado');
-
 
             if(!producto.querySelector('.etiqueta-agotado')){
 
                 const etiqueta=document.createElement('span');
 
                 etiqueta.className='etiqueta-agotado';
-
                 etiqueta.innerText='AGOTADO';
 
                 producto.insertBefore(
@@ -1281,29 +1272,21 @@ function aplicarDisponibilidad(){
 
             }
 
-
             boton.disabled=true;
-
             boton.innerText='Agotado';
-
             boton.removeAttribute('onclick');
-
 
         }else{
 
             producto.classList.remove('producto-agotado');
-
 
             const etiqueta=
                 producto.querySelector('.etiqueta-agotado');
 
             if(etiqueta) etiqueta.remove();
 
-
             boton.disabled=false;
-
             boton.innerText='Agregar';
-
 
             if(!boton.hasAttribute('onclick')){
 
@@ -1321,7 +1304,6 @@ function aplicarDisponibilidad(){
                         10
                     ) || 0;
 
-
                 boton.setAttribute(
                     'onclick',
                     `agregar('${nombre.replace(/'/g,"\\'")}',${precio})`
@@ -1335,12 +1317,10 @@ function aplicarDisponibilidad(){
 
 }
 
-
 document.addEventListener(
     'DOMContentLoaded',
     aplicarDisponibilidad
 );
-
 
 /* ===== AGREGAR PRODUCTO ===== */
 
@@ -1348,7 +1328,6 @@ function agregar(nombre,precio){
 
     const productos=
         Array.from(document.querySelectorAll('.producto'));
-
 
     const producto=
         productos.find(p => {
@@ -1360,32 +1339,23 @@ function agregar(nombre,precio){
 
         });
 
-
     if(producto &&
        (producto.dataset.disponible || 'on')
        .toLowerCase()
        .trim()==='off'){
 
         alert('Este producto está agotado.');
-
         return;
-
     }
-
 
     carrito.push({
         nombre:nombre,
         precio:precio
     });
 
-
     total+=precio;
 
-
     actualizar();
-
-
-    /* ===== GOOGLE ANALYTICS ===== */
 
     gtag('event','add_to_cart',{
         currency:'COP',
@@ -1396,13 +1366,10 @@ function agregar(nombre,precio){
         }]
     });
 
-
     let carritoIcono=
         document.querySelector(".carrito-icono");
 
-
     carritoIcono.style.transform="scale(1.3)";
-
 
     setTimeout(()=>{
 
@@ -1412,7 +1379,6 @@ function agregar(nombre,precio){
 
 }
 
-
 /* ===== ACTUALIZAR CARRITO ===== */
 
 function actualizar(){
@@ -1420,9 +1386,7 @@ function actualizar(){
     let lista=
         document.getElementById("listaCarrito");
 
-
     lista.innerHTML="";
-
 
     carrito.forEach((p,i)=>{
 
@@ -1448,16 +1412,13 @@ function actualizar(){
 
     });
 
-
     document.getElementById("total").innerText=
         total.toLocaleString("es-CO");
-
 
     document.getElementById("contador").innerText=
         carrito.length;
 
 }
-
 
 /* ===== ELIMINAR PRODUCTO ===== */
 
@@ -1471,14 +1432,12 @@ function eliminar(i){
 
 }
 
-
 /* ===== ABRIR / CERRAR CARRITO ===== */
 
 function toggleCarrito(){
 
     let panel=
         document.getElementById("panelCarrito");
-
 
     if(panel.style.right=="0px"){
 
@@ -1492,7 +1451,6 @@ function toggleCarrito(){
 
 }
 
-
 function cerrarCarrito(){
 
     document.getElementById(
@@ -1500,7 +1458,6 @@ function cerrarCarrito(){
     ).style.right="-400px";
 
 }
-
 
 /* ===== COMPRA DIRECTA POR WHATSAPP ===== */
 
@@ -1516,10 +1473,8 @@ function pagar(){
 
     }
 
-
     let mensaje=
-        "Hola quiero comprar:%0A";
-
+        "Hola quiero comprar:\n";
 
     carrito.forEach(p=>{
 
@@ -1527,33 +1482,28 @@ function pagar(){
             p.nombre+
             " - $"+
             p.precio.toLocaleString("es-CO")+
-            "%0A";
+            "\n";
 
     });
-
 
     mensaje+=
         "Total: $"+
         total.toLocaleString("es-CO");
-
 
     gtag('event','click_whatsapp',{
         metodo:'compra_directa',
         valor:total
     });
 
-
     window.open(
-        "https://wa.me/573003673598?text="+mensaje,
+        "https://wa.me/573003673598?text="+
+        encodeURIComponent(mensaje),
         "_blank"
     );
 
 }
 
-
-/* ================================================= */
-/* ===== LÓGICA QR NEQUI ============================ */
-/* ================================================= */
+/* ===== LÓGICA QR NEQUI ===== */
 
 function mostrarQR(){
 
@@ -1567,17 +1517,14 @@ function mostrarQR(){
 
     }
 
-
     document.getElementById(
         "montoNequiModal"
     ).innerText=
         total.toLocaleString("es-CO");
 
-
     document.getElementById(
         "qrNequi"
     ).style.display="flex";
-
 
     gtag('event','begin_checkout',{
         currency:'COP',
@@ -1585,7 +1532,6 @@ function mostrarQR(){
     });
 
 }
-
 
 function cerrarQR(){
 
@@ -1595,7 +1541,6 @@ function cerrarQR(){
 
 }
 
-
 /* ===== BOTÓN YA PAGUÉ ===== */
 
 function confirmarPagoNequi(){
@@ -1603,27 +1548,20 @@ function confirmarPagoNequi(){
     if(carrito.length===0){
 
         alert("El carrito está vacío.");
-
         return;
 
     }
-
-
-    /*
-    El cliente indica que ya realizó el pago.
-    Aquí NO se vacía el carrito porque todavía
-    necesitamos los productos para el formulario.
-    */
-
 
     gtag('event','pago_iniciado',{
         metodo_pago:'Nequi',
         valor:total
     });
 
-
     cerrarQR();
 
+    /* Cada vez que abre el formulario inicia en domicilio */
+
+    seleccionarEntrega("domicilio");
 
     document.getElementById(
         "formularioDomicilio"
@@ -1631,6 +1569,38 @@ function confirmarPagoNequi(){
 
 }
 
+/* ===== TIPO DE ENTREGA ===== */
+
+let tipoEntrega="domicilio";
+
+function seleccionarEntrega(tipo){
+
+    tipoEntrega=tipo;
+
+    const domicilio=
+        document.getElementById("opcionDomicilio");
+
+    const tienda=
+        document.getElementById("opcionTienda");
+
+    const datos=
+        document.getElementById("datosDomicilio");
+
+    if(tipo==="domicilio"){
+
+        domicilio.classList.add("seleccionada");
+        tienda.classList.remove("seleccionada");
+        datos.style.display="block";
+
+    }else{
+
+        tienda.classList.add("seleccionada");
+        domicilio.classList.remove("seleccionada");
+        datos.style.display="none";
+
+    }
+
+}
 
 /* ===== CERRAR FORMULARIO ===== */
 
@@ -1642,10 +1612,7 @@ function cerrarFormularioDomicilio(){
 
 }
 
-
-/* ================================================= */
-/* ===== ENVIAR PEDIDO + DATOS DEL DOMICILIO ====== */
-/* ================================================= */
+/* ===== ENVIAR PEDIDO ===== */
 
 function enviarPedidoDomicilio(){
 
@@ -1654,71 +1621,84 @@ function enviarPedidoDomicilio(){
             "nombreCliente"
         ).value.trim();
 
-
     const telefono=
         document.getElementById(
             "telefonoCliente"
         ).value.trim();
-
 
     const direccion=
         document.getElementById(
             "direccionCliente"
         ).value.trim();
 
-
     const barrio=
         document.getElementById(
             "barrioCliente"
         ).value.trim();
-
 
     const ciudad=
         document.getElementById(
             "ciudadCliente"
         ).value.trim();
 
-
     const referencia=
         document.getElementById(
             "referenciaCliente"
         ).value.trim();
 
-
     /* ===== VALIDAR DATOS ===== */
 
-    if(
-        !nombre ||
-        !telefono ||
-        !direccion ||
-        !barrio ||
-        !ciudad
-    ){
+    if(!nombre || !telefono){
 
         alert(
-            "Por favor completa todos los campos obligatorios."
+            "Por favor completa tu nombre y teléfono."
         );
 
         return;
 
     }
 
+    if(
+        tipoEntrega==="domicilio" &&
+        (
+            !direccion ||
+            !barrio ||
+            !ciudad
+        )
+    ){
+
+        alert(
+            "Por favor completa todos los datos del domicilio."
+        );
+
+        return;
+
+    }
 
     /* ===== CREAR MENSAJE ===== */
 
     let mensaje=
-        "Hola, acabo de realizar un pago por Nequi. 💜%0A%0A";
-
+        "Hola, acabo de realizar un pago por Nequi. 💜\n\n";
 
     mensaje+=
-        "📦 *NUEVO PEDIDO*%0A%0A";
+        "📦 *NUEVO PEDIDO*\n\n";
 
+    if(tipoEntrega==="domicilio"){
+
+        mensaje+=
+            "🚚 *MODALIDAD: DOMICILIO*\n\n";
+
+    }else{
+
+        mensaje+=
+            "🏪 *MODALIDAD: RECOGER EN TIENDA*\n\n";
+
+    }
 
     /* ===== PRODUCTOS ===== */
 
     mensaje+=
-        "🛒 *PRODUCTOS:*%0A";
-
+        "🛒 *PRODUCTOS:*\n";
 
     carrito.forEach(p=>{
 
@@ -1727,111 +1707,105 @@ function enviarPedidoDomicilio(){
             p.nombre+
             " - $"+
             p.precio.toLocaleString("es-CO")+
-            "%0A";
+            "\n";
 
     });
 
-
     mensaje+=
-        "%0A💰 *TOTAL PAGADO: $"+
+        "\n💰 *TOTAL PAGADO: $"+
         total.toLocaleString("es-CO")+
-        "*%0A%0A";
-
+        "*\n\n";
 
     /* ===== DATOS CLIENTE ===== */
 
     mensaje+=
-        "👤 *DATOS DEL CLIENTE*%0A";
-
+        "👤 *DATOS DEL CLIENTE*\n";
 
     mensaje+=
         "Nombre: "+
         nombre+
-        "%0A";
-
+        "\n";
 
     mensaje+=
         "📱 WhatsApp: "+
         telefono+
-        "%0A";
+        "\n";
 
+    /* ===== DATOS DOMICILIO ===== */
 
-    mensaje+=
-        "📍 Dirección: "+
-        direccion+
-        "%0A";
-
-
-    mensaje+=
-        "🏘️ Barrio: "+
-        barrio+
-        "%0A";
-
-
-    mensaje+=
-        "🌆 Ciudad: "+
-        ciudad+
-        "%0A";
-
-
-    if(referencia){
+    if(tipoEntrega==="domicilio"){
 
         mensaje+=
-            "📝 Referencia: "+
-            referencia+
-            "%0A";
+            "📍 Dirección: "+
+            direccion+
+            "\n";
+
+        mensaje+=
+            "🏘️ Barrio: "+
+            barrio+
+            "\n";
+
+        mensaje+=
+            "🌆 Ciudad: "+
+            ciudad+
+            "\n";
+
+        if(referencia){
+
+            mensaje+=
+                "📝 Referencia: "+
+                referencia+
+                "\n";
+
+        }
+
+    }else{
+
+        mensaje+=
+            "\n🏪 El cliente recogerá su pedido en la tienda.\n";
 
     }
 
-
     mensaje+=
-        "%0A📸 Enviaré el comprobante de pago.";
-
+        "\n📸 Enviaré el comprobante de pago.";
 
     /* ===== GOOGLE ANALYTICS ===== */
 
     gtag('event','pedido_domicilio',{
 
         currency:'COP',
-
         value:total,
-
-        metodo_pago:'Nequi'
+        metodo_pago:'Nequi',
+        tipo_entrega:tipoEntrega
 
     });
-
 
     /* ===== ABRIR WHATSAPP ===== */
 
     window.open(
 
         "https://wa.me/573003673598?text="+
-        mensaje,
+        encodeURIComponent(mensaje),
 
         "_blank"
 
     );
 
-
     /* ===== VACIAR CARRITO ===== */
 
     carrito=[];
-
     total=0;
 
     actualizar();
 
-
     cerrarFormularioDomicilio();
-
     cerrarCarrito();
+
+    seleccionarEntrega("domicilio");
 
 }
 
-
-/* ================================================= */
-/* ===== LOGIN ===================================== */
-/* ================================================= */
+/* ===== LOGIN ===== */
 
 function registrar(){
 
@@ -1840,24 +1814,20 @@ function registrar(){
             "usuario"
         ).value;
 
-
     let clave=
         document.getElementById(
             "clave"
         ).value;
-
 
     localStorage.setItem(
         "usuario",
         usuario
     );
 
-
     localStorage.setItem(
         "clave",
         clave
     );
-
 
     document.getElementById(
         "mensajeLogin"
@@ -1866,7 +1836,6 @@ function registrar(){
 
 }
 
-
 function iniciarSesion(){
 
     let usuario=
@@ -1874,24 +1843,20 @@ function iniciarSesion(){
             "usuario"
         ).value;
 
-
     let clave=
         document.getElementById(
             "clave"
         ).value;
-
 
     let usuarioGuardado=
         localStorage.getItem(
             "usuario"
         );
 
-
     let claveGuardada=
         localStorage.getItem(
             "clave"
         );
-
 
     if(
         usuario===usuarioGuardado &&
@@ -1914,92 +1879,69 @@ function iniciarSesion(){
 
 }
 
-
-/* ================================================= */
-/* ===== CARRITO MOVIBLE CON MOUSE Y DEDO ========== */
-/* ================================================= */
+/* ===== CARRITO MOVIBLE CON MOUSE Y DEDO ===== */
 
 const carritoMovil=
     document.getElementById(
         "carritoMovil"
     );
 
-
 let moviendoCarrito=false;
-
 let seMovio=false;
-
 let offsetX=0;
-
 let offsetY=0;
-
 
 function iniciarMovimiento(e){
 
     moviendoCarrito=true;
-
     seMovio=false;
-
 
     const punto=
         e.touches ?
         e.touches[0] :
         e;
 
-
     const rect=
         carritoMovil.getBoundingClientRect();
-
 
     offsetX=
         punto.clientX-
         rect.left;
 
-
     offsetY=
         punto.clientY-
         rect.top;
 
-
     carritoMovil.style.right="auto";
-
     carritoMovil.style.bottom="auto";
-
 
     e.preventDefault();
 
 }
-
 
 function moverCarrito(e){
 
     if(!moviendoCarrito)
         return;
 
-
     const punto=
         e.touches ?
         e.touches[0] :
         e;
 
-
     let x=
         punto.clientX-
         offsetX;
-
 
     let y=
         punto.clientY-
         offsetY;
 
-
     const ancho=
         carritoMovil.offsetWidth;
 
-
     const alto=
         carritoMovil.offsetHeight;
-
 
     if(
         Math.abs(
@@ -2015,7 +1957,6 @@ function moverCarrito(e){
 
     }
 
-
     x=Math.max(
         0,
         Math.min(
@@ -2023,7 +1964,6 @@ function moverCarrito(e){
             window.innerWidth-ancho
         )
     );
-
 
     y=Math.max(
         0,
@@ -2033,14 +1973,11 @@ function moverCarrito(e){
         )
     );
 
-
     carritoMovil.style.left=
         x+"px";
 
-
     carritoMovil.style.top=
         y+"px";
-
 
     if(e.touches){
 
@@ -2050,20 +1987,12 @@ function moverCarrito(e){
 
 }
 
-
 function terminarMovimiento(){
 
     if(!moviendoCarrito)
         return;
 
-
     moviendoCarrito=false;
-
-
-    /*
-    Solo abre el carrito si el usuario
-    no lo estaba arrastrando.
-    */
 
     if(!seMovio){
 
@@ -2072,7 +2001,6 @@ function terminarMovimiento(){
     }
 
 }
-
 
 /* ===== MOUSE ===== */
 
@@ -2090,7 +2018,6 @@ document.addEventListener(
     "mouseup",
     terminarMovimiento
 );
-
 
 /* ===== CELULAR ===== */
 
@@ -2110,7 +2037,6 @@ document.addEventListener(
     "touchend",
     terminarMovimiento
 );
-
 
 </script>
 
