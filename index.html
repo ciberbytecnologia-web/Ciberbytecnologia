@@ -858,10 +858,10 @@
 
     <h3>Camara 360 Pro</h3>
 
-    <p class="precio">$1.500</p>
+    <p class="precio">$80.000</p>
 
     <button class="boton"
-    onclick="agregar('Camara 360 pro',1500)">
+    onclick="agregar('Camara 360 pro',80000)">
     Agregar
     </button>
 
@@ -1654,83 +1654,170 @@
 
     async function comprobarRetornoWompi(){
 
-        const params=new URLSearchParams(window.location.search);
-        const transactionId=params.get("id");
+        const params = new URLSearchParams(window.location.search);
+        const transactionId = params.get("id");
 
         if(!transactionId) return;
 
-        const pendienteTexto=localStorage.getItem("ciberbyte_wompi_pendiente");
+        const pendienteTexto =
+            localStorage.getItem("ciberbyte_wompi_pendiente");
 
         if(!pendienteTexto){
+
+            console.warn(
+                "No existe una compra Wompi pendiente para verificar."
+            );
+
             return;
         }
 
         let pendiente;
 
         try{
-            pendiente=JSON.parse(pendienteTexto);
+
+            pendiente = JSON.parse(pendienteTexto);
+
         }catch(e){
-            localStorage.removeItem("ciberbyte_wompi_pendiente");
+
+            console.error(
+                "Error leyendo la compra pendiente:",
+                e
+            );
+
+            localStorage.removeItem(
+                "ciberbyte_wompi_pendiente"
+            );
+
             return;
         }
 
         try{
 
-            const respuesta=await fetch(
-                WOMPI_WORKER_URL+"estado?id="+
+            const respuesta = await fetch(
+                WOMPI_WORKER_URL +
+                "estado?id=" +
                 encodeURIComponent(transactionId)
             );
 
-            const datos=await respuesta.json();
-            const transaccion=datos.data;
+            const datos = await respuesta.json();
 
-            if(
-                !respuesta.ok ||
-                !transaccion ||
-                transaccion.status!=="APPROVED" ||
-                transaccion.reference!==pendiente.reference ||
-                Number(transaccion.amount_in_cents)!==Number(pendiente.amountInCents) ||
-                transaccion.currency!=="COP"
-            ){
+            console.log(
+                "Respuesta de verificación Wompi:",
+                datos
+            );
 
-                localStorage.removeItem("ciberbyte_wompi_pendiente");
+            if(!respuesta.ok || !datos.success){
 
-                alert(
-                    "El pago con Wompi no aparece como aprobado.\n\n"+
-                    "Estado: "+(transaccion ? transaccion.status : "No encontrado")
+                throw new Error(
+                    datos.error ||
+                    "El Worker no pudo consultar la transacción."
                 );
-
-                return;
 
             }
 
-            /* Restaurar carrito después del regreso desde Wompi. */
-            carrito=Array.isArray(pendiente.carrito) ? pendiente.carrito : [];
-            total=Number(pendiente.total) || 0;
-            metodoPagoActual="Wompi";
+            const estado = datos.status;
+            const referencia = datos.reference;
+            const monto = Number(datos.amountInCents);
+            const moneda = datos.currency;
+
+            console.log("Estado Wompi:", estado);
+            console.log("Referencia Wompi:", referencia);
+            console.log("Monto Wompi:", monto);
+            console.log("Moneda Wompi:", moneda);
+
+            const pagoAprobado =
+                estado === "APPROVED" &&
+                referencia === pendiente.reference &&
+                monto === Number(pendiente.amountInCents) &&
+                moneda === "COP";
+
+            if(!pagoAprobado){
+
+                alert(
+                    "⚠️ El pago fue consultado, pero todavía no podemos confirmarlo.\n\n" +
+                    "Estado recibido: " +
+                    (estado || "Desconocido") +
+                    "\n\n" +
+                    "Si Wompi muestra el pago como aprobado, " +
+                    "NO vuelvas a pagar. Comunícate con Ciberbyte."
+                );
+
+                return;
+            }
+
+            carrito =
+                Array.isArray(pendiente.carrito)
+                    ? pendiente.carrito
+                    : [];
+
+            total =
+                Number(pendiente.total) || 0;
+
+            metodoPagoActual = "Wompi";
+
             actualizar();
 
-            localStorage.removeItem("ciberbyte_wompi_pendiente");
+            localStorage.removeItem(
+                "ciberbyte_wompi_pendiente"
+            );
 
-            /* Limpiar el ?id= de la dirección sin recargar la página. */
-            window.history.replaceState({},document.title,window.location.pathname);
+            localStorage.setItem(
+                "ciberbyte_ultimo_pago_wompi",
+                JSON.stringify({
+                    transactionId: transactionId,
+                    reference: referencia,
+                    amountInCents: monto,
+                    currency: moneda,
+                    status: estado,
+                    fecha: new Date().toISOString()
+                })
+            );
 
-            gtag('event','pago_aprobado',{
-                metodo_pago:'Wompi',
-                valor:total,
-                referencia:pendiente.reference
-            });
+            window.history.replaceState(
+                {},
+                document.title,
+                window.location.pathname
+            );
 
-            alert("✅ Pago aprobado correctamente. Ahora completa los datos de entrega.");
+            gtag(
+                "event",
+                "pago_aprobado",
+                {
+                    metodo_pago: "Wompi",
+                    valor: total,
+                    referencia: referencia,
+                    transaction_id: transactionId
+                }
+            );
+
+            alert(
+                "✅ PAGO APROBADO CORRECTAMENTE\n\n" +
+                "Wompi confirmó el pago.\n" +
+                "Valor: $" +
+                total.toLocaleString("es-CO") +
+                "\n\n" +
+                "Ahora completa los datos de entrega."
+            );
 
             seleccionarEntrega("domicilio");
-            document.getElementById("formularioDomicilio").style.display="flex";
+
+            document.getElementById(
+                "formularioDomicilio"
+            ).style.display = "flex";
 
         }catch(error){
 
-            console.error("Error verificando Wompi:",error);
+            console.error(
+                "Error verificando Wompi:",
+                error
+            );
 
-            alert("No pudimos verificar el pago con Wompi. Si el dinero fue descontado, no repitas el pago y comunícate con Ciberbyte.");
+            alert(
+                "⚠️ No pudimos confirmar el estado del pago en este momento.\n\n" +
+                "Si Wompi ya muestra el pago como aprobado, " +
+                "NO vuelvas a pagar.\n\n" +
+                "Comunícate con Ciberbyte para verificar la transacción."
+            );
 
         }
 
