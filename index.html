@@ -1677,7 +1677,7 @@
         try{
 
             const respuesta=await fetch(
-                "https://production.wompi.co/v1/transactions/"+
+                WOMPI_WORKER_URL+"estado?id="+
                 encodeURIComponent(transactionId)
             );
 
