@@ -12,6 +12,39 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTCRCRQRBR"></script>
 
         <script>
+
+        /* ===== CATEGORÍAS ===== */
+        function mostrarCategoria(categoria){
+            const tecnologia=document.getElementById("contenidoTecnologia");
+            const juguetes=document.getElementById("seccionJuguetes");
+            const botones=document.querySelectorAll(".boton-categoria");
+
+            if(categoria==="juguetes"){
+                tecnologia.style.display="none";
+                juguetes.style.display="block";
+                botones[0].classList.remove("activo");
+                botones[1].classList.add("activo");
+            }else{
+                tecnologia.style.display="block";
+                juguetes.style.display="none";
+                botones[1].classList.remove("activo");
+                botones[0].classList.add("activo");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function(){
+            document.querySelectorAll(".producto img").forEach(function(img){
+                img.addEventListener("error", function(){
+                    this.style.display="none";
+                    const aviso=document.createElement("div");
+                    aviso.className="imagen-no-disponible";
+                    aviso.innerHTML="🖼️<br><small>Imagen no encontrada</small>";
+                    this.parentNode.insertBefore(aviso,this);
+                }, {once:true});
+            });
+            aplicarDisponibilidad();
+        });
+
         window.dataLayer = window.dataLayer || [];
 
         function gtag(){
@@ -355,6 +388,7 @@
             transform:none;
         }
 
+        /* ===== CATEGORÍAS ===== */
         /* ===== CARRITO ===== */
 
         .carrito-icono{
@@ -654,6 +688,48 @@
 
         }
 
+
+        /* ===== CATEGORÍAS Y JUGUETES ===== */
+        #contenidoTecnologia{display:block;}
+        #seccionJuguetes{display:none; width:100%;}
+        .juguetes-intro{
+            max-width:900px;
+            margin:0 auto 25px;
+            background:white;
+            border-radius:18px;
+            padding:30px 20px;
+            box-shadow:0 5px 20px rgba(0,0,0,.10);
+        }
+        .juguetes-intro .icono{font-size:58px; margin-bottom:8px;}
+        .juguetes-intro h2{font-size:32px; margin:8px 0;}
+        .juguetes-intro p{font-size:18px; color:#555; margin:0;}
+        .producto img{
+            display:block;
+            width:100%;
+            height:220px;
+            object-fit:contain;
+            background:#fff;
+            border-radius:10px;
+        }
+        .producto{overflow:hidden;}
+        .imagen-no-disponible{
+            width:100%;
+            height:220px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            background:#f0f0f0;
+            color:#777;
+            border-radius:10px;
+            font-size:36px;
+        }
+        .imagen-no-disponible small{font-size:13px;}
+        @media screen and (max-width:768px){
+            .producto img{height:260px;}
+            .imagen-no-disponible{height:260px;}
+        }
+
         </style>
 
         </head>
@@ -671,8 +747,7 @@
         </div>
 
         </div>
-
-        </header>
+</header>
 
         <nav>
 
@@ -701,24 +776,14 @@
 
         <section id="productos">
 
-        <div class="categorias">
-            <button class="boton-categoria activo" onclick="mostrarCategoria('tecnologia')">💻 TECNOLOGÍA</button>
-            <button class="boton-categoria juguetes" onclick="mostrarCategoria('juguetes')">🧸 JUGUETES</button>
-        </div>
-
-        <div id="seccionJuguetes">
-            <div class="proximamente">
-                <div class="icono">🧸</div>
-                <h2>JUGUETES — PRÓXIMAMENTE</h2>
-                <p>Muy pronto encontrarás aquí nuestros juguetes disponibles.</p>
+            <div class="categorias">
+                <button class="boton-categoria activo" onclick="mostrarCategoria('tecnologia')">💻 TECNOLOGÍA</button>
+                <button class="boton-categoria juguetes" onclick="mostrarCategoria('juguetes')">🧸 JUGUETES</button>
             </div>
-        </div>
 
-        <div id="contenidoTecnologia">
-        <h2>Productos de Tecnología</h2>
-
-        <div class="galeria">
-
+            <div id="contenidoTecnologia">
+                <h2>Productos de Tecnología</h2>
+                <div class="galeria">
         <div class="producto" data-disponible="on">
 
         <img src="imagenes/Audifono Caja colores.jpeg">
@@ -734,22 +799,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/DRON RC.jpeg">
-
-        <h3>Mini Dron RC Leading</h3>
-
-        <p class="precio">$120.000</p>
-
-        <button class="boton"
-        onclick="agregar('Mini Dron RC Leading',120000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/Mouse SD300.jpeg">
 
@@ -764,22 +814,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/AIR PRO.jpeg">
-
-        <h3>Audífonos Air Pro</h3>
-
-        <p class="precio">$60.000</p>
-
-        <button class="boton"
-        onclick="agregar('Audífonos Air Pro',60000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="off">
+                <div class="producto" data-disponible="off">
 
         <img src="imagenes/AUDIFONOS NIKY.jpeg">
 
@@ -794,22 +829,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/ANDROID TV.jpeg">
-
-        <h3>Android Tv</h3>
-
-        <p class="precio">$80.000</p>
-
-        <button class="boton"
-        onclick="agregar('Android Tv',80000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="off">
+                <div class="producto" data-disponible="off">
 
         <img src="imagenes/Intercomunicador.jpeg">
 
@@ -824,22 +844,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/Carga y juega.jpeg">
-
-        <h3>Carga y juega Xbox</h3>
-
-        <p class="precio">$20.000</p>
-
-        <button class="boton"
-        onclick="agregar('Carga y juega Xbox',20000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/MOUSE I OCZU.jpeg">
 
@@ -854,22 +859,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/MIni teclado TV (1).jpg">
-
-        <h3>Mini Teclado tv inalambrico</h3>
-
-        <p class="precio">$30.000</p>
-
-        <button class="boton"
-        onclick="agregar('Mini Teclado tv',30000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/Combo teclado mouse.jpg">
 
@@ -884,22 +874,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/PLANCHA.jpeg">
-
-        <h3>Plancha Remigton</h3>
-
-        <p class="precio">$60.000</p>
-
-        <button class="boton"
-        onclick="agregar('Plancha Remigton',60000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/Ventilador helllo kity.jpeg">
 
@@ -914,22 +889,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/camara 360.jpeg">
-
-        <h3>Camara 360 Pro</h3>
-
-        <p class="precio">$80.000</p>
-
-        <button class="boton"
-        onclick="agregar('Camara 360 pro',80000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/camara bombilo.jpeg">
 
@@ -944,22 +904,7 @@
 
         </div>
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/PATINETA.jpeg">
-
-        <h3>Patineta Ganzago 350W</h3>
-
-        <p class="precio">$1.300.000</p>
-
-        <button class="boton"
-        onclick="agregar('Patineta 350W',1300000)">
-        Agregar
-        </button>
-
-        </div>
-
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/DATAFONO SONOQR .jpg">
 
@@ -975,21 +920,7 @@
         </div>
         
 
-        <div class="producto" data-disponible="on">
-
-        <img src="imagenes/AUDIFONOS TIPO C.jpeg">
-
-        <h3>Audifonos tipo C</h3>
-
-        <p class="precio">$12.000</p>
-
-        <button class="boton"
-        onclick="agregar('Audifonos tipo c',12000)">
-        Agregar
-        </button>
-
-        </div>
-        <div class="producto" data-disponible="on">
+                <div class="producto" data-disponible="on">
 
         <img src="imagenes/PARLANTE-PC.jpeg">
 
@@ -1004,7 +935,34 @@
 
         </div>
 
-        </div>
+                        </div>
+            </div>
+
+            <div id="seccionJuguetes">
+                <div class="juguetes-intro">
+                    <div class="icono">🧸</div>
+                    <h2>JUGUETES</h2>
+                    <p>Encuentra los juguetes que necesitas en esta sección.</p>
+                </div>
+
+                <div class="galeria">
+
+                    <div class="producto" data-disponible="on">
+                        <img src="imagenes/burbujera.jpeg" alt="Pistola Burbuja Bubble Gun">
+                        <h3>Pistola Burbuja Bubble Gun</h3>
+                        <p class="precio">$15.000</p>
+                        <button class="boton" onclick="agregar('Pistola Burbuja Bubble Gun',15000)">Agregar</button>
+                    </div>
+
+                    <div class="producto" data-disponible="on">
+                        <img src="imagenes/STICH.jpeg" alt="Peluche Stitch">
+                        <h3>Peluche Stitch</h3>
+                        <p class="precio">$20.000</p>
+                        <button class="boton" onclick="agregar('Peluche Stitch',20000)">Agregar</button>
+                    </div>
+
+                </div>
+            </div>
 
         </section>
 
@@ -1348,26 +1306,6 @@
                 behavior:"smooth"
             });
 
-        }
-
-        /* ===== CATEGORÍAS ===== */
-
-        function mostrarCategoria(categoria){
-            const tecnologia=document.getElementById("contenidoTecnologia");
-            const juguetes=document.getElementById("seccionJuguetes");
-            const botones=document.querySelectorAll(".boton-categoria");
-
-            if(categoria==="juguetes"){
-                tecnologia.style.display="none";
-                juguetes.style.display="block";
-                botones[0].classList.remove("activo");
-                botones[1].classList.add("activo");
-            }else{
-                tecnologia.style.display="block";
-                juguetes.style.display="none";
-                botones[1].classList.remove("activo");
-                botones[0].classList.add("activo");
-            }
         }
 
         /* ===== CARRITO ===== */
